@@ -1,0 +1,32 @@
+Tri\ 2/ENGR302/
+Tri\ 1/ENGR301/
+Tri\ 2/RESE412/Assignment\ 3/RESE412-TeamECO/
+Tri\ 1/Wiki/
+Tri\ 2/Wiki/
+Python\ Interpreter/
+.idea/
+
+## LaTeX
+# Core latex/pdflatex auxiliary files:
+*.aux
+*.lo[gft]
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.dvi
+*.fdb_latexmk
+_minted*
+*.pyg
+*.synctex.gz
+*.blg
+*.bbl
+*.bak
+*.sav
+.texpadtmp
+*.backup
+*~[0-9]*
+*/auto/*
