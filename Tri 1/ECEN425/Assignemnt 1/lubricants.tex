@@ -1,0 +1,79 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[left=2.5cm, right=2.5cm, top=1.5cm, bottom=1.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[procnames]{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{ %color attributes of citation, link, etc.
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=gray,
+    urlcolor=blue,
+    citecolor=blue,
+}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\matlab}{\textsc{Matlab}} %very important and totally necessary addition
+\newcommand{\parallelsum}{\mathbin{\!/\mkern-5mu/\!}}
+
+%'codify' text for snippets
+\usepackage{xcolor}
+\definecolor{codegray}{gray}{1}
+\newcommand{\code}[1]{\colorbox{codegray}{\texttt{#1}}}
+
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{p_red}{RGB}{160,0,0}
+\definecolor{p_green}{RGB}{0,150,0} 
+\lstset{language=Python, 
+        basicstyle=\ttfamily\small, 
+        keywordstyle=\color{keywords},
+        commentstyle=\color{comments},
+        stringstyle=\color{p_red},
+        showstringspaces=false,
+        identifierstyle=\color{p_green},
+		procnamekeys={def,class}}
+
+\graphicspath{ {./images/} }
+           
+\begin{document}
+\title{\LARGE{\textbf{ECEN425 Assignemnt 1}}}
+\author{Niels Clayton : 300437590}
+\date{}
+\maketitle
+\hrule
+
+\section*{Lubricants}
+
+\begin{itemize}
+    \item Types of lubricants (oils, grease, solid/dry lubricants)
+    \item cost 
+    \item Water resistance
+    \item Extreme pressure performance
+    \item Temperature range
+    \item Corrosion protection
+\end{itemize}
+
+\end{document}
+
+
+% Equation align
+\begin{align*}
+    f_p &= \frac{f_c}{K_c}\\
+        &= \frac{1023}{1}\\
+        &= 1023\\
+\end{align*}
+
+% Insert image
+\begin{center}
+    \fbox{\includegraphics[width=0.9\textwidth]{image_name.png}}
+\end{center}
+
+% Insert code
+\begin{center}
+    \fbox{\lstinputlisting[language=Python, linerange={5-30}]{../Lab_2.m}}
+\end{center}
