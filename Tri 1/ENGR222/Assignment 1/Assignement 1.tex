@@ -238,18 +238,32 @@
                 1 & -3t^2\\
                 0 & -6t
             \end{vmatrix}\bar{k}\\
-            &=(-6t^2 + 4t)\bar{i} - 2\bar{j} - 6t\bar{k} \\\\
-            || \bar{r}'(t) \times \bar{r}''(t) || &= \sqrt{(-6t^2 + 4t)^2 - 4 - 6t^2}\\\\
-            \bar{B}(t) &= \frac{(-6t^2 + 4t)\bar{i} - 2\bar{j} - 6t\bar{k}}{\sqrt{(-6t^2 + 4t)^2 - 4 - 6t^2}}
+            &=6t^2\bar{i} - 2\bar{j} - 6t\bar{k} \\\\
+            || \bar{r}'(t) \times \bar{r}''(t) || &= \sqrt{36t^4 + 4 + 36t^2}\\\\
+            \bar{B}(t) &= \frac{6t^2\bar{i} - 2\bar{j} - 6t\bar{k}}{\sqrt{36t^4 + 4 + 36t^2}}\\\\
+            \bar{B}(1) &= \frac{6\bar{i} - 2\bar{j} - 6\bar{k}}{\sqrt{76}}
         \end{align*}
 
         \item Find the minimum and maximum curvature for the curve described by:
         
 
         \begin{align*}
-            \bar{r}(t) &= (3\sin(t) +2)\bar{i} + (2\cos(t)+1)\bar{j}\\\\
+            \bar{r}(t) &= (3\sin(t) +2)\bar{i} + (2\cos(t)+1)\bar{j}\\
+            \kappa(t) &= \frac{|| \bar{r}'(t) \times \bar{r}''(t) ||}{|| \bar{r}'(t) ||^3}\\\\
             \bar{r}'(t) &= 3\cos(t)\bar{i} -2\sin(t)\bar{j}\\
-            \bar{r}''(t) &= -3\sin(t)\bar{i} -2\cos(t)\bar{j}\\
+            \bar{r}''(t) &= -3\sin(t)\bar{i} -2\cos(t)\bar{j}\\\\
+            \bar{r}'(t) \times \bar{r}''(t) &= 
+            \begin{vmatrix}
+                \bar{i} & \bar{j} \\
+                3\cos(t) & -2\sin(t) \\
+                -3\sin(t) & -2\cos(t) 
+            \end{vmatrix}\bar{k}\\
+            &= \left( -6\cos^2(t) - 6\sin^2(t) \right)\bar{k} = -6\bar{k}\\\\
+            || \bar{r}'(t) \times \bar{r}''(t) || &= \sqrt{-6^2} = 6\\\\
+            || \bar{r}'(t) || &= \sqrt{(3\cos(t))^2 + (-2\sin(t))^2}\\
+            &= \sqrt{9\cos^2(t) + 4\sin^2(t)}\\
+            &= \sqrt{5\cos^2(t) + 4} \\\\
+            \kappa(t) &= \frac{6}{\left(\sqrt{5\cos^2(t) + 4}\right)^3}
         \end{align*}
         
     \end{enumerate}
