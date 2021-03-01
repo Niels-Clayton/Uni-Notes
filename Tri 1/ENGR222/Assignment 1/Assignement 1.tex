@@ -5,7 +5,6 @@
 \usepackage{amsmath}
 \usepackage[procnames]{listings}
 \usepackage{xcolor}
-\usepackage[active,tightpage]{preview}
 \usepackage{hyperref}
 
 \hypersetup{ %color attributes of citation, link, etc.
@@ -18,8 +17,7 @@
 
 \setlength{\parindent}{0pt}
 
-\renewcommand{\PreviewBorder}{1in}
-\newcommand{\Newpage}{\end{preview}\begin{preview}}
+
 \newcommand{\matlab}{\textsc{Matlab}} %very important and totally necessary addition
 \newcommand{\parallelsum}{\mathbin{\!/\mkern-5mu/\!}}
 
@@ -48,7 +46,6 @@
 \graphicspath{ {./images/} }
            
 \begin{document}
-\begin{preview}
 \title{\LARGE{\textbf{ENGR222 Assignment 1}}}
 \author{Niels Clayton : 300437590}
 \date{}
@@ -123,6 +120,7 @@
             t = \ln(2)&=0.693147\\
             \bar{r}(\ln(2)) &= (0.635, 2)
         \end{align*}
+        \newpage
 
         \item Determine the unit tangent vector to the curve (for arbitrary t)
         
@@ -151,6 +149,8 @@
             &= \frac{2 \sqrt{\operatorname{sech}^2(t)}}{(e^{2t}+1)} \\
         \end{align*}
 
+        \newpage
+
         \item  Determine the arc length of the curve over $ 0 \leq t \leq 3 $
         
         \begin{align*}
@@ -163,7 +163,7 @@
 
     \end{enumerate}
 
-    \item  Quick questions
+    \item  Quick questions\\
     
     \begin{enumerate}
         \item Determine the arc length parametrisation of:
@@ -179,8 +179,9 @@
             (f(s),g(s),h(s)) &= \left( \frac{3}{\sqrt{35}}s, \frac{1}{\sqrt{35}}s -2, \frac{-5}{\sqrt{35}}s +7 \right)\\
         \end{align*}
 
-        \item  Determine the arc length parametrisation of:
-        $$ \bar{r}(t) = (5\cos(t) + 3)\bar{i} + (-5\sin(t) + 2)\bar{j} $$
+        \newpage
+        \item  Determine the arc length parametrisation of:\\
+        $$ \bar{r}(t) = (5\cos(t) + 3)\bar{i} + (-5\sin(t) + 2)\bar{j} $$\\
         using $t = 0$ as the starting/reference point
 
         \begin{align*}
@@ -194,7 +195,7 @@
             \bar{r}(s) &= \left(5\cos\left(\frac{s}{5}\right) + 3\right)\bar{i} + \left(-5\sin\left(\frac{s}{5}\right) + 2\right) \bar{j}\\
         \end{align*}
 
-        \item Find the unit tangent vector to:
+        \item Find the unit tangent vector to:\\
         $$ \bar{r}(t) = (\sqrt{2}\cos(t))\bar{i} + (\sin(t))\bar{j} + (\sin(t))\bar{k} $$
 
         at $t = \frac{\pi}{3}$
@@ -210,7 +211,7 @@
             \bar{T}\left(\frac{\pi}{3}\right) &= \frac{\left( -\frac{\sqrt{6}}{2} \right) \bar{i} + \left(\frac{1}{2}\right) \bar{j} + \left(\frac{1}{2}\right)\bar{k} }{\sqrt{2}}
         \end{align*}
 
-        
+        \newpage
         \item An alternative formula for the binormal vector is:
         $$ \bar{B}(t) = \frac{\bar{r}'(t) \times \bar{r}''(t)}{|| \bar{r}'(t) \times \bar{r}''(t) ||} $$
         Use this to find the binormal vector to:
@@ -243,10 +244,10 @@
             \bar{B}(t) &= \frac{6t^2\bar{i} - 2\bar{j} - 6t\bar{k}}{\sqrt{36t^4 + 4 + 36t^2}}\\\\
             \bar{B}(1) &= \frac{6\bar{i} - 2\bar{j} - 6\bar{k}}{\sqrt{76}}
         \end{align*}
-
+        
+        \newpage
         \item Find the minimum and maximum curvature for the curve described by:
         
-
         \begin{align*}
             \bar{r}(t) &= (3\sin(t) +2)\bar{i} + (2\cos(t)+1)\bar{j}\\
             \kappa(t) &= \frac{|| \bar{r}'(t) \times \bar{r}''(t) ||}{|| \bar{r}'(t) ||^3}\\\\
@@ -265,15 +266,74 @@
             &= \sqrt{5\cos^2(t) + 4} \\\\
             \kappa(t) &= \frac{6}{\left(\sqrt{5\cos^2(t) + 4}\right)^3}
         \end{align*}
-        
+
+        Since the curvature $\kappa$ is periodic on $\pi$ due to the $\cos^2(t)$, we know that the minimum and maximum will fall on $\frac{\pi}{2}$ and $\pi$. In the following plot we can see that $t=\frac{\pi}{2}$ is the maximum, and $t=\pi$ is the minimum.
+
+        % Insert image
+        \begin{center}
+            \fbox{\includegraphics[width=0.8\textwidth]{image2.png}}
+        \end{center}
+
+        $$ \kappa(\frac{\pi}{2}) = \frac{6}{\left(\sqrt{5\cos^2(\frac{\pi}{2}) + 4}\right)^3}= 0.75$$
+        $$ \kappa(\pi) = \frac{6}{\left(\sqrt{5\cos^2(\pi) + 4}\right)^3} = 0.22\bar{2}$$
+
     \end{enumerate}
 
-    % \item Suppose a roller coaster follows a path described by:
-    % $$ \bar{r}(t) = (3\sin(t) +2)\bar{i} + \frac{t^2}{50}(20-t)\bar{j} + \frac{t}{50}(10-t)(20-t)\bar{k} $$
+    \newpage
+    \item Suppose a roller coaster follows a path described by:
+    $$ \bar{r}(t) = \frac{1}{5}t(20-t)\bar{i} + \frac{t^2}{50}(20-t)\bar{j} + \frac{t}{50}(10-t)(20-t)\bar{k} $$\\
+
+    \begin{enumerate}
+        \item Determine the velocity vector of the roller coaster (for arbitrary $t$)
+        \begin{align*}
+            \bar{r}'(t) &= (4 - \frac{2t}{5}) \bar{i} + \frac{t}{50}(40-3t)\bar{j} + \left(\left(\frac{3t^2}{50}-\frac{6t}{5}\right)+4\right)\bar{k}\\
+        \end{align*}
+
+        \item Determine the speed when $t = 5$
+        \begin{align*}
+            \bar{r}'(5) &= (4 - 2) \bar{i} + \frac{5}{50}(40-15)\bar{j} + \left(\left(\frac{75}{50}-\frac{30}{5}\right)+4\right)\bar{k}\\
+            &= 2\bar{i} + 2.5\bar{j} - 0.5\bar{k}\\
+            || \bar{r}'(5) || &= \sqrt{2^2 + 2.5^2 + -0.5^2} = 3.162278\\
+        \end{align*}
+
+        \item  Determine the acceleration vector of the roller coaster (for arbitrary $t$)
+
+        \begin{align*}
+            \bar{r}''(t) &= -\frac{2}{5}\bar{i} + (\frac{4}{5} - \frac{3t}{25})\bar{j} + \frac{3t-30}{25}\bar{k}\\
+        \end{align*}
+
+        \item Determine the curvature of curve followed by the roller coaster when $t = 5$
+        
+        \begin{align*}
+            \kappa(t) &= \frac{|| \bar{r}'(t) \times \bar{r}''(t) ||}{|| \bar{r}'(t) ||^3}\\\\
+            \bar{r}'(5) &= 2\bar{i} + 2.5\bar{j} - 0.5\bar{k}\\
+            \bar{r}''(5) &= -0.4\bar{i} + 0.2\bar{j} - 0.6\bar{k}\\
+            || \bar{r}'(5) ||^3 &= 31.622787\\\\
+            \bar{r}'(5) \times \bar{r}''(5) &=  
+            \begin{vmatrix}
+                \bar{i} & \bar{j} & \bar{k}\\
+                2 & 2.5 & -0.5 \\
+                -0.4 & 0.2 & -0.6
+            \end{vmatrix}\\
+            &= \begin{vmatrix}
+                2.5 & -0.5 \\
+                0.2 & -0.6
+            \end{vmatrix} \bar{i}
+            -\begin{vmatrix}
+                2 & -0.5\\
+                -0.4 & -0.6
+            \end{vmatrix} \bar{j}
+            +  \begin{vmatrix}
+                2 & 2.5\\
+                -0.4 & 0.2
+            \end{vmatrix}\bar{k}\\
+            &= -1.4\bar{i} -1.4\bar{k} + 1.4\bar{k}\\\\
+            || \bar{r}'(5) \times \bar{r}''(5) || &= \sqrt{-1.4^2 -1.4^2 + 1.4^2} = \frac{7\sqrt{3}}{5}\\\\
+            \kappa(5) &= \frac{\frac{7\sqrt{3}}{5}}{31.622787} = 0.712696
+        \end{align*}
+
+    \end{enumerate}
 
 
 \end{enumerate}
-
-
-\end{preview}
 \end{document}
