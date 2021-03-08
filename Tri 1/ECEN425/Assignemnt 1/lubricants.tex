@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,11pt, twocolumn]{article}
 \usepackage[left=2.5cm, right=2.5cm, top=1.5cm, bottom=1.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{amssymb}
@@ -45,35 +45,49 @@
 \author{Niels Clayton : 300437590}
 \date{}
 \maketitle
-\hrule
 
-\section*{Lubricants}
+\section{Battery Technologies} 
 
-\begin{itemize}
-    \item Types of lubricants (oils, grease, solid/dry lubricants)
-    \item cost 
-    \item Water resistance
-    \item Extreme pressure performance
-    \item Temperature range
-    \item Corrosion protection
-\end{itemize}
+\subsection{Lead Acid Batteries}
+
+Lead acid batteries are an inexpensive rechargeable battery technology. They feature the lowest self discharge rate amongst rechargeable batteries \cite{lead_acid}, as well as a high specific power and good low and high temperature performance. They are made from generally considered highly toxic materials however their ease of recycling means that they have a 99\% recycling rate. 
+
+\subsubsection{Storage}
+
+Lead acid batteries must be stored in a state of full charge. Prolonged periods of low charge cause sulfation to occur, permanently shortening the life of the battery \cite{sulfation}. They must also be stored within their operating temperature range, low temperatures will cause them to freeze and high temperatures will lead to a loss of the electrolyte, both of which will damage the battery.
+
+\subsubsection{Battery Maintenance \& Safety}
+
+\textbf{Flooded Lead Acid}\\
+To maintain a flooded lead acid battery, the lead plates must never become exposed. To prevent this, regular checks of the batteries water level should be conducted, and watering of the battery must take place. The battery must be topped up with distilled water to the indicated level, but only after a full charge to prevent an overflow.
+It is important to know that the charging of a flooded lead acid battery can lead to the production of both hydrogen and oxygen gas. To combat this, the battery must always be charged in a well ventilated area. \\
+
+\textbf{Sealed Lead Acid}\\
+Sealed lead acid batteries come with a set amount of electrolyte that is non-replaceable. They are equipped with a valve that will vent gas that is produced, making them very low maintenance. This means however that incorrect usage such as overcharging or storing at high temperatures will degrade the performance of the battery permanently. Sealed lead acid batteries must be charged at a lower voltage than flooded to avoid the gas generation stage of the charge cycle. They must also be kept within their optimum operating temperature, as every 8$^o$C above this temperature threshold cuts the battery life in half \cite{lead_acid}.
+
+\subsubsection{Battery Applications}
+
+Lead acid batteries have a low specific energy when compared to other battery Technologies. Because of this they tend to be used in situations where the weight of the battery is not the limiting factor.
+
+\textbf{\\Deep cycle Lead Acid}\\
+The deep cycle lead acid battery is built for maximum capacity and a reasonably high cycle count. This is done by increasing the thickness of the lead plates inside of the battery. Although this battery is designed for cycling, fully discharging the battery will still stress it. This means that the cycle count is still dependant on the depth of discharge. This battery is used in continuous power applications, these include uninterruptible power supply’s (UPS’s), and external battery storages for off grid housing or emergencies.
+
+\textbf{\\Starter Lead Acid}\\
+The starter lead acid battery is built for momentary high power, high current loads lasting only a few seconds. This is done by making the lead plates thin and porous to increase their surface area. This gives the battery a very low internal resistance, however it also greatly decreases the number of deep cycles the battery can withstand. Starter batteries are categorised by their cold cranking amps (CCA), which defines the current the battery can deliver at cold temperatures. This battery is often used to crank engines, but is suitable for any task requiring occasional high current loads.
+
+\subsection{Nickel-cadmium - NiCd}
+
+\subsection{Nickel-metal-hydride - NiMH}
+
+
+\newpage
+\onecolumn
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
 
 \end{document}
-
-
-% Equation align
-\begin{align*}
-    f_p &= \frac{f_c}{K_c}\\
-        &= \frac{1023}{1}\\
-        &= 1023\\
-\end{align*}
 
 % Insert image
 \begin{center}
     \fbox{\includegraphics[width=0.9\textwidth]{image_name.png}}
-\end{center}
-
-% Insert code
-\begin{center}
-    \fbox{\lstinputlisting[language=Python, linerange={5-30}]{../Lab_2.m}}
 \end{center}

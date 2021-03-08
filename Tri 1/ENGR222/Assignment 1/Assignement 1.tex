@@ -286,30 +286,31 @@
     \begin{enumerate}
         \item Determine the velocity vector of the roller coaster (for arbitrary $t$)
         \begin{align*}
-            \bar{r}'(t) &= (4 - \frac{2t}{5}) \bar{i} + \frac{t}{50}(40-3t)\bar{j} + \left(\left(\frac{3t^2}{50}-\frac{6t}{5}\right)+4\right)\bar{k}\\
+            \bar{v}(t) &= (4 - \frac{2t}{5}) \bar{i} + \frac{t}{50}(40-3t)\bar{j} + \left(\left(\frac{3t^2}{50}-\frac{6t}{5}\right)+4\right)\bar{k}\\
         \end{align*}
 
         \item Determine the speed when $t = 5$
         \begin{align*}
-            \bar{r}'(5) &= (4 - 2) \bar{i} + \frac{5}{50}(40-15)\bar{j} + \left(\left(\frac{75}{50}-\frac{30}{5}\right)+4\right)\bar{k}\\
+            \bar{v}(5) &= (4 - 2) \bar{i} + \frac{5}{50}(40-15)\bar{j} + \left(\left(\frac{75}{50}-\frac{30}{5}\right)+4\right)\bar{k}\\
             &= 2\bar{i} + 2.5\bar{j} - 0.5\bar{k}\\
-            || \bar{r}'(5) || &= \sqrt{2^2 + 2.5^2 + -0.5^2} = 3.162278\\
+            || \bar{v}(5) || &= \sqrt{2^2 + 2.5^2 + -0.5^2} = 3.24037\\
         \end{align*}
 
         \item  Determine the acceleration vector of the roller coaster (for arbitrary $t$)
 
         \begin{align*}
-            \bar{r}''(t) &= -\frac{2}{5}\bar{i} + (\frac{4}{5} - \frac{3t}{25})\bar{j} + \frac{3t-30}{25}\bar{k}\\
+            \bar{a}(t) &= -\frac{2}{5}\bar{i} + (\frac{4}{5} - \frac{3t}{25})\bar{j} + \frac{3t-30}{25}\bar{k}\\
         \end{align*}
 
         \item Determine the curvature of curve followed by the roller coaster when $t = 5$
         
         \begin{align*}
             \kappa(t) &= \frac{|| \bar{r}'(t) \times \bar{r}''(t) ||}{|| \bar{r}'(t) ||^3}\\\\
-            \bar{r}'(5) &= 2\bar{i} + 2.5\bar{j} - 0.5\bar{k}\\
-            \bar{r}''(5) &= -0.4\bar{i} + 0.2\bar{j} - 0.6\bar{k}\\
-            || \bar{r}'(5) ||^3 &= 31.622787\\\\
-            \bar{r}'(5) \times \bar{r}''(5) &=  
+            \bar{v}(5) &= 2\bar{i} + 2.5\bar{j} - 0.5\bar{k}\\
+            || \bar{v}(5) || &= \sqrt{10.5}\\
+            || \bar{v}(5) ||^3 &= \sqrt{10.5}^3 =34.02388\\\\
+            \bar{a}(5) &= -0.4\bar{i} + 0.2\bar{j} - 0.6\bar{k}\\\\
+            \bar{v}(5) \times \bar{a}(5) &=  
             \begin{vmatrix}
                 \bar{i} & \bar{j} & \bar{k}\\
                 2 & 2.5 & -0.5 \\
@@ -328,10 +329,21 @@
                 -0.4 & 0.2
             \end{vmatrix}\bar{k}\\
             &= -1.4\bar{i} -1.4\bar{k} + 1.4\bar{k}\\\\
-            || \bar{r}'(5) \times \bar{r}''(5) || &= \sqrt{-1.4^2 -1.4^2 + 1.4^2} = \frac{7\sqrt{3}}{5}\\\\
-            \kappa(5) &= \frac{\frac{7\sqrt{3}}{5}}{31.622787} = 0.712696
+            || \bar{v}(5) \times \bar{a}(5) || &= \sqrt{-1.4^2 -1.4^2 + 1.4^2} = \sqrt{5.88} \\\\
+            \kappa(5) &= \frac{\sqrt{5.88}}{34.02388} = 0.0712696
         \end{align*}
+        
+        \newpage
+        \item Determine the normal scalar component of acceleration when $t = 5$\\
+        Comparing this with $||\bar{a}(5)||$, what can you say about the tangential scalar component of acceleration when $t = 5$?
 
+        \begin{align*}
+            \bar{a}_N(t)&= \frac{|| \bar{v}(t) \times \bar{a}(t) ||}{|| \bar{v}(t) ||}\\\\
+            \bar{a}_N(5) &= \frac{\sqrt{5.88}}{\sqrt{10.5}} = \sqrt{0.56}\\\\
+            ||\bar{a}(5)|| &= \sqrt{(-0.4)^2 + 0.2^2 + (- 0.6)^2} = \sqrt{0.56}\\
+        \end{align*}
+        It can be seen that the magnitude of the acceleration vector is equal to the normal scalar component of acceleration at $t=5$.
+        
     \end{enumerate}
 
 
