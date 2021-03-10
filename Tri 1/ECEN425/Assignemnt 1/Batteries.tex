@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt, twocolumn]{article}
+\documentclass[a4paper,11pt]{article}
 \usepackage[left=2.5cm, right=2.5cm, top=1.5cm, bottom=1.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{amssymb}
@@ -6,6 +6,7 @@
 \usepackage[procnames]{listings}
 \usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage{multicol}
 
 \hypersetup{ %color attributes of citation, link, etc.
     colorlinks=true,
@@ -41,10 +42,28 @@
 \graphicspath{ {./images/} }
            
 \begin{document}
-\title{\LARGE{\textbf{ECEN425 Assignemnt 1}\\Going Beyond Datasheets}}
-\author{Niels Clayton : 300437590}
-\date{}
-\maketitle
+\begin{multicols}{2}
+[
+\section{Battery Specifications}
+\begin{center}
+    \begin{tabular}{ |c|c|c|c|c|c| } 
+     \hline
+                                & \textbf{Lead Acid} & \textbf{NiCd} &  \textbf{NiMH} & \textbf{Li-ion} & \textbf{Li-Po}\\
+        \hline
+        \textbf{Specific Energy (Wh/kg)} & 30-50     & 45-80        & 60-120 & 100-265 & 100-265\\
+        \hline
+        \textbf{Energy Desity (Wh/L)}    & 80-90 & 50-150 & 140-300 & 250-639 & 250-730 \\        
+        \hline
+        \textbf{Cycle Life  (80\% DoD)}  & 200-300 & 1000 & 300-500 & 500-1000 & 300-500 \\
+        \hline
+        \textbf{Cell Voltage (V)}        & 2.1 & 1.2 & 1.2 & 3.6-3.85 & 3.6-3.7 \\
+        \hline
+        \textbf{Charge Time (h)}         & 8-16 & 1-2 & 2-4 & 1-4 & 2-3 \\
+     \hline
+    \end{tabular}
+    \end{center}
+    \vspace{10pt}
+]
 
 \section{Battery Technologies} 
 
@@ -86,7 +105,7 @@ NiCd Batteries are capable of being stored at any state of charge, however it is
 \subsubsection{Battery Maintenance \& Safety}
 
 NiCd Batteries are one of the few batteries that will benefit from a full discharge of the cells. When using NiCd batteries you should aim to perform a full discharge every 1-3 months to prevent the build up of crystals within the battery. Never short circuit the battery to discharge it, this will produce hydrogen gas that can lead to explosions. 
-NiCd batteries also require the most complex circuitry for charging, and should never be overcharged as this will damage the battery. 
+NiCd batteries also require the most complex circuitry for charging, and should never be overcharged as this will damage the battery. Due to their relatively low cell voltage it is common to place many NiCd batteries in series. This can lead to charging complications so it recommended to always use a NiCd specific charger.
 It is advised that after storage a NiCd battery should be primed before use by trickle charging the battery for 16-24 hours.
 
 \subsubsection{Battery Applications}
@@ -111,24 +130,39 @@ NiMH batteries are commonly used in short term high drain situations. This has l
 
 \subsection{Lithium-ion - Li-Ion}
 
-The key to the superior specific energy is the high cell voltage of 3.60V\\
-Li-ion is a low-maintenance battery, The battery has no memory and does not need exercising (deliberate full discharge) to keep it in good shape.
+Lithium-ion (Li-Ion) batteries are low maintenance, and provide superior specific energy when compared to other common batteries. They feature a high cell voltage (usually around 3.6V), meaning that they are simple to integrate into electronics without the need for multiple cells. There are many different types of Li-Ion batteries, all supporting different chemistries and therefore characteristics.
 
 \subsubsection{Storage}
+\label{Li-ion storage}
+
+Li-Ion batteries should be stored at a voltage below 4V but ideally at 30\% capacity to avoid stresses to the battery that can degrade it's capacity. At 30\% charge a Li-Ion will have very little self discharge. If you are looking to transport Li-Ion batteries it is a requirement to discharge it 30\% capacity. It is also important to store Li-Ion batteries in a cool dry environment (below 30$^o$C), increasing the storage temperature will decrease the batteries capacity. After storage check the cell voltage of any Li-Ion battery, if the voltage is lower than 2V discard the battery immediately.
 
 \subsubsection{Battery Maintenance \& Safety}
+\label{Li-ion safety}
+
+Li-ion batteries have no memory and do not need exercising or reconditioning of the cells, because of this they are generally considered to be low maintenance. They however do present a large amount of safety concerns due to their construction containing lithium, and require the correct protection circuitry. This protection circuitry will prevent over-discharging, over-charging, and usage at high temperatures. When using a Li-Ion battery make sure it has been correctly certified, uncertified batteries have a higher risk of accidents due to thermal run away. 
 
 \subsubsection{Battery Applications}
 
+Li-Ion batteries are quickly becoming a common replacement for both lead and nickel based batteries due to its high cycle count, high specific energy, and low maintenance. However Li-Ion batteries are less rugged and do require protection circuitry, meaning that they aren't often used for storage banks or emergency power. They will often be found in consumer electronics such as laptops. 
 
 \subsection{Lithium-polymer - Li-Po}
 
+Lithium-polymer (Li-Po) batteries are electrically very similar to Li-ion batteries, and feature almost identical storage, maintenance, and safety instructions. Li-Po batteries do however feature a slightly higher specific energy, as well as being more durable, and capable of being produced in almost any desired shape.
+
 \subsubsection{Storage}
+
+Storage of Li-Po batteries is identical to that of Li-ion found in section \ref{Li-ion storage}.
 
 \subsubsection{Battery Maintenance \& Safety}
 
+Li-Po batteries feature the same maintenance \& safety requirements as the Li-ion batteries in section \ref{Li-ion safety}, with a few additions. Li-Po batteries can sometimes lack an external protective metal casing as it is not required in their construction. This means that Li-Po batteries can be easily damaged from crushing and puncture, so it is important to store then in a location that will avoid this.
+
 \subsubsection{Battery Applications}
 
+Li-Po batteries are commonly found in consumer electronics such as phones and laptops due to their light weight and high specific energy. They are also capable of being manufactured to any required shape, meaning that they are capable of fully utilising space inside the chassis of a small device. 
+
+\end{multicols}
 
 \newpage
 \onecolumn
