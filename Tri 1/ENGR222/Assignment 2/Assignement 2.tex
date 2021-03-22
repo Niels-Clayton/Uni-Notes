@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage[procnames]{listings}
 \usepackage{xcolor}
+\usepackage[active,tightpage]{preview}
 \usepackage{hyperref}
 
 \hypersetup{ %color attributes of citation, link, etc.
@@ -17,7 +18,8 @@
 
 \setlength{\parindent}{0pt}
 
-
+\renewcommand{\PreviewBorder}{1in}
+\newcommand{\Newpage}{\end{preview}\begin{preview}}
 \newcommand{\matlab}{\textsc{Matlab}} %very important and totally necessary addition
 \newcommand{\parallelsum}{\mathbin{\!/\mkern-5mu/\!}}
 
@@ -46,6 +48,7 @@
 \graphicspath{ {./images/} }
            
 \begin{document}
+\begin{preview}
 \title{\LARGE{\textbf{ENGR222 Assignment 2}}}
 \author{Niels Clayton : 300437590}
 \date{}
@@ -92,7 +95,6 @@
             \end{center}
 
             The critical points are $\rightarrow [(1,1), \; (-1,-1), \; (0, \sqrt{\frac{3}{2}})]$
-            \newpage
 
         \item Classify the critical point $(0,\sqrt{\frac{3}{2}})$
         
@@ -123,7 +125,6 @@
             D_u f(0,0,0) &= 0.36 -1.6 = -1.24\\
         \end{align*}
 
-        \newpage
         \item Determine the local linear approximation of $f(x, y, z) = (1+x)(1-y^2)(1-z)^2$ at the point $(1, 2, 3)$
         
         \begin{align*}
@@ -149,27 +150,117 @@
             f_{xx}  &= (4 x^2 - 2) e^{-x^2 - y^2}         \\
             f_{yy}  &= (4 y^2 - 2) e^{-x^2 - y^2}         \\
             f_{xy}  &= (4xy) e^{-x^2}e^{-y^2}             \\\\
-            L(1,1)  &= e^{-2} -2e^{-2}(x-1) - 2e^{-2}(y-1)\\
-            p_2(1,1)&= e^{-2} -2e^{-2}(x-1) - 2e^{-2}(y-1) \\
-                    &+ \frac{1}{2} \left[  2e^{-2}(x-2)^2 + 2e^{-2}(y-2)^2 + 8e^{-2}(x-1)(y-1)\right] \\
+            L(1,1)  &= e^{-2} -2e^{-2}(x-1) - 2e^{-2}(y-1) = e^{-2}(5-2x-2y)\\
+            p_2(1,1)&= e^{-2}(5-2x-2y) + \frac{1}{2} \left[  2e^{-2}(x-2)^2 + 2e^{-2}(y-2)^2 + 8e^{-2}(x-1)(y-1)\right] \\
+                    &= e^{-2}(x^2 + y^2 -8x -8y +4xy +11)
         \end{align*}
 
-        \item
+        \item Determine the gradient of $f(x,y) = x^3+y^3-4x-2y$ along the curve \\$(x(t), y(t)) = (t^3 - 2t, t^2)$ when $t=1$
+        
+        \begin{align*}
+            \bigtriangledown f(x,y) &= f_x(x,y)\textbf{i} + f_y(x,y)\textbf{j}\\\\
+            f_x &= 3x^2 -4\\
+            f_y &= 3y^2 -2\\
+            \therefore \bigtriangledown f(x,y) &= (3x^2 -4)\textbf{i} + (3y^2 -2)\textbf{j}\\\\
+            (x(1),y(1)) &= (-1,1)\\
+            \bigtriangledown f(-1,1) &= f_x(-1,1)\textbf{i} + f_y(-1,1)\textbf{j}\\
+            &= -1 \textbf{i} + 1 \textbf{j}
+        \end{align*}
+
+        \item Determine the tangent plane to the surface $z = x^2 + xy -y^4$ at the point $(x,y)=(2,1)$
+        \begin{align*}
+            F(x,y,z) &= z - x^2 - xy + y^4 = 0\\\\
+            \mathrm{Find \; } &z \mathrm{\; at\; the \; point \;} (x,y) = (2,1)\\
+            z &= 2^2 + 2 -1^4=5\\\\
+            \bigtriangledown F(x,y,z) &= (-2x-y) \textbf{i} + (4y^3-x)\textbf{j} + \textbf{k}\\
+            \bigtriangledown F(2,1,5) &= -5\textbf{i} + 2\textbf{j} + \textbf{k}\\\\
+            \mathrm{Tangent Plane} &= -5(x-2) + 2(y-1) + (z-5)\\
+            z &= 5x -2y -3
+        \end{align*}
     
     \end{enumerate}
 
     \item Double Integrals
     
     \begin{enumerate}
-        \item 
+
+        \item Determine the integral of $f(x,y) = e^{-x}\cos(y)$ over the rectangular region \\$R = {(x,y) : x \in [0,2], y \in [\frac{-\pi}{2}, \frac{\pi}{2}]}$'
+        
+        \begin{align*}
+            &\int_{-\pi/2}^{\pi/2} \int_{0}^{2} e^{-x}\cos(y) \,dx \,dy\\\\
+            &= \int_{-\pi/2}^{\pi/2} \cos(y) \int_{0}^{2} e^{-x} \,dx \,dy\\
+            &= \int_{-\pi/2}^{\pi/2} \cos(y) \Big| -e^{-x} \Big|_{x = 0}^{x = 2} \,dy\\
+            &= \int_{-\pi/2}^{\pi/2} \cos(y) (-e^{-2} - -e^0) \,dy\\\\
+            &= \int_{-\pi/2}^{\pi/2} \cos(y) (-e^{-2} +1) \,dy\\
+            &= (-e^{-2} +1) \Big| \sin(y) \Big|_{y = -\pi/2}^{y = \pi/2}\\
+            &= (-e^{-2} +1) (\sin(\pi/2) - \sin(-\pi/2))\\\\
+            &= -2e^{-2} +2\\
+        \end{align*}
     
-        \item
-    
-        \item
-    
-        \item
-    
+        \item Determine the integral of $f(x,y)=\sin(x+y)$ over the triangular region for which $ x \geq 0, \; y \geq 0 $ and $ x+y \leq \pi $
+        
+        \begin{align*}
+            &\int_{0}^{\pi} \int_{0}^{\pi - x} \sin(x+y) \,dy  \,dx \\\\
+            &= \int_{0}^{\pi} \Big|-\cos(x+y) \Big|_{0}^{\pi - x}  \,dx \\
+            &= \int_{0}^{\pi} -\cos(\pi) + cos(x) \,dx \\
+            &= \int_{0}^{\pi} 1 + \cos(x) \,dx \\\\
+            &= \Big| x +\sin(x) \Big|_{0}^{\pi} \\
+            &= (\pi + \sin(\pi)) - (0 +\sin(0)) \\
+            &= \pi
+        \end{align*}
+
+        \item Determine the area of the region $R = \{(x,y) : e^{y/3} \leq x \leq 10+\sin(y), y \in [0,5]\}$ 
+        
+        \begin{align*}
+            &\int_{0}^{5} \int_{e^{y/3}}^{10+\sin(y)} \,dx  \,dy \\\\
+            &\int_{0}^{5} \Big| x  \Big|_{e^{y/3}}^{10+\sin(y)} \,dy \\
+            &\int_{0}^{5}  10+\sin(y) - e^{y/3} \,dy \\\\
+            &= \Big| 10y -\cos(y) - 3e^{y/3} \Big|_{0}^{5} \\
+            &= 50 -\cos(5) - 3e^{5/3} + \cos(0) + 3e^{0} \\
+            &= 37.832 \\
+        \end{align*}
+
+        \item Determine the average of $f(x,y) = 3y-2x$ over the region \\$R = \{ (x,y) : 0 \leq y \leq 4-x^2, x \in [-2,2] \}$
+        
+        \begin{align*}
+            \mu &= \frac{1}{|R|} \iint_R f(x,y) dA\\\\
+            |R| &= \int_{-2}^{2} \int_{0}^{4-x^2} \,dy  \,dx \\
+                &= \int_{-2}^{2} \big| y \Big|_{0}^{4-x^2} \,dx \\
+                &= \int_{-2}^{2} 4-x^2 \,dx \\\\
+                &= \Big| 4x - \frac{x^3}{3} \Big|_{-2}^{2} \\
+                &= 8 - \frac{2^3}{3} + 8 - \frac{2^3}{3} \\ 
+                &= \frac{32}{3}\\\\
+                &\int_{-2}^{2} \int_{0}^{4-x^2} 3y - 2x \,dy  \,dx \\
+                &= \int_{-2}^{2} \Big| \frac{3y^2}{2} - 2xy \Big|_{0}^{4-x^2} \,dx \\
+                &= \int_{-2}^{2} \frac{3(4-x^2)^2}{2} - 2x(4-x^2) \,dx \\
+                &= \int_{-2}^{2} \frac{3x^4}{2} + 2x^3 - 12x^2 - 8x + 24 \,dx \\\\
+                &= \int_{-2}^{2} \frac{3x^5}{10} + \frac{x^4}{2} - 4x^3 - 4x^2 + 24x  \\
+                &= \Big| \frac{3x^5}{10} + \frac{x^4}{2} - 4x^3 - 4x^2 + 24x \Big|_{-2}^{2} \\
+                &= (\frac{3(2)^5}{10} + \frac{(2)^4}{2} - 4(2)^3 - 4(2)^2 + 24(2)) - (\frac{3(-2)^5}{10} + \frac{(-2)^4}{2} - 4(-2)^3 - 4(-2)^2 + 24(-2))\\
+                &= \frac{256}{5}\\\\
+            \mu &= \frac{\frac{256}{5}}{\frac{32}{3}} \\
+                &= \frac{24}{5} = 4.8
+        \end{align*}
+
+        \item Determine the surface area of the surface described by $z = \sqrt{9 - x^2}$ over the region $R = \{ (x,y) : 0 \leq y \leq x, x \in [0,3] \}$ 
+        
+        \begin{align*}
+            \mathrm{Surface \; Area \;} &= \iint_R \sqrt{ f_x(x,y)^2 + f_y(x,y)^2 +1} dA\\\\
+            \mathrm{Integrand} &= \sqrt{ f_x(x,y)^2 + f_y(x,y)^2 +1}\\\\
+            f_x &= -\frac{x}{\sqrt{9 - x^2}}\\
+            f_y &= 0 \\\\
+            \mathrm{Integrand} &= \sqrt{ \left(-\frac{x}{\sqrt{9 - x^2}}\right)^2 +1}\\\\
+            &= \sqrt{ \frac{x^2}{9-x^2} +1} = \frac{3}{\sqrt{9-x^2}}\\\\
+            \mathrm{Surface \; Area \;} &= \int_{0}^{3} \int_{0}^{x} \frac{3}{\sqrt{9-x^2}} \,dy  \,dx \\ 
+            &= \int_{0}^{3} \Big| \left( \frac{3}{\sqrt{9-x^2}} \right) y \Big|_{0}^{x}  \,dx \\
+            &= \int_{0}^{3} \left( \frac{3}{\sqrt{9-x^2}} \right) x  \,dx \\\\
+            &= \Big| -3\sqrt{9-x^2} \Big|_{0}^{3}\\
+            &= -3\sqrt{0} + 3\sqrt{9}\\
+            &= 9
+        \end{align*}
+
     \end{enumerate}
 
 \end{enumerate}
+\end{preview}
 \end{document}
