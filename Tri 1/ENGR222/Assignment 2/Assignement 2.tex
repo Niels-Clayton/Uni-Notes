@@ -256,11 +256,97 @@
             &= \int_{0}^{3} \left( \frac{3}{\sqrt{9-x^2}} \right) x  \,dx \\\\
             &= \Big| -3\sqrt{9-x^2} \Big|_{0}^{3}\\
             &= -3\sqrt{0} + 3\sqrt{9}\\
-            &= 9
+            &= 9\\
         \end{align*}
-
     \end{enumerate}
 
+    \item Lab Questions
+    
+    \begin{enumerate}
+        \item investigate the numerical approximation of a derivative
+        \begin{enumerate}
+            \item Estimate the numerical derivative of $f(x) = e^{\cos(\pi x^2)}$ at the point $x = 1/\sqrt{2}$ \\
+            Estimate the derivative via: $$ \frac{df}{dx} \approx \frac{f(x +h) - f(x)}{h}$$
+            
+            for a range of step sizes $h$ plot the error verses the step size: 
+            \begin{center}
+                \includegraphics[width = 0.8\textwidth]{Figure_1.png}
+            \end{center}
+
+            The minimum error of \code{2.134e-08} was achieved with a step size of \code{4.132e-09}\\\\
+
+            \item Estimate the numerical derivative of $f(x) = e^{\cos(\pi x^2)}$ at the point $x = 1/\sqrt{2}$ \\
+            Estimate the derivative via: 
+            
+            $$ \frac{df}{dx} \approx \frac{f(x +h) - f(x-h)}{2h}$$
+            
+            for a range of step sizes $h$ plot the error verses the step size: 
+            \begin{center}
+                \includegraphics[width = 0.8\textwidth]{Figure_2.png}
+            \end{center}
+
+            The minimum error of \code{4.407e-11} was achieved with a step size of \code{4.75e-07}\\\\
+
+            \item Estimate the numerical second derivative of $f(x) = e^{\cos(\pi x^2)}$ at the point $x = 1/\sqrt{2}$ \\
+            Estimate the second derivative via: 
+            
+            $$ \frac{d^2f}{dx^2} \approx \frac{f(x +h) -2f(x) + f(x-h)}{h^2}$$
+            
+            for a range of step sizes $h$ plot the error verses the step size: 
+            \begin{center}
+                \includegraphics[width = 0.8\textwidth]{Figure_3.png}
+            \end{center}
+
+            The minimum error of \code{4.08e-08} was achieved with a step size of \code{2.477e-05}\\\\
+
+        \end{enumerate}
+
+        \item investigate the numerical approximation of an integral
+        
+        \begin{enumerate}
+            \item Numerically integrate the following integral using the  trapezoidal rule, with sub-intervals of $n = 10,20,40,80,160$
+            $$ \int_{0}^{10} xe^{-\sqrt{x}} \,dx $$
+            
+            The following is the numerical integral evaluations:\\\\
+            \texttt{For a subinterval of 10 the integral is 4.608\\
+            For a subinterval of 20 the integral is 4.652\\
+            For a subinterval of 40 the integral is 4.664\\
+            For a subinterval of 80 the integral is 4.668\\
+            For a subinterval of 160 the integral is 4.669\\\\}
+
+        \item Numerically integrate the following integral using the  Simpson rule, with sub-intervals of $n = 10,20,40,80,160$
+        $$ \int_{0}^{10} xe^{-\sqrt{x}} \,dx $$
+
+        The following is the numerical integral evaluations:\\\\
+        \texttt{For a sub-interval of 10 the integral is 4.657102287466295\\
+        For a sub-interval of 20 the integral is 4.666621390508981\\
+        For a sub-interval of 40 the integral is 4.668462546387442\\
+        For a sub-interval of 80 the integral is 4.668804644613161\\
+        For a sub-interval of 160 the integral is 4.668866774081337\\\\}
+        I am comfortable estimating that that 4 digits are correct. This this due to the speed of conversion of the Simpson's rule compared to the trapezoidal rule.\\\\
+
+        \item Use the quad function from scipy.integrate to estimate the value of the integrals:
+
+        $$ \int_{0}^{10} xe^{-\sqrt{x}}\,dx \; , \;\;\;\int_{0}^{100} xe^{-\sqrt{x}} \,dx \; , \;\;\; \int_{0}^{1000} xe^{-\sqrt{x}} \,dx \;\;\; $$
+        
+        The evaluation of these integrals is as follows:\\\\
+        \texttt{At the upper bound of 10.0 the integral evaluates to 4.668880328350931\\
+        At the upper bound of 100.0 the integral evaluates to 11.875967391881685\\
+        At the upper bound of 1000.0 the integral evaluates to 11.999999998713989\\\\}
+
+        This appears to converge to a value of 12.\\
+
+        Now evaluate the following integral:\\
+        $$ \int_{0}^{\infty} xe^{-\sqrt{x}}\,dx $$
+
+        This evaluates to:\\
+        \texttt{At an infinite upper bound the integral evaluates to 12.000000000094914}
+
+        \end{enumerate}
+
+    \end{enumerate}
+    \section*{Lab Code}
+    \lstinputlisting{lab/lab_questions.py}
 \end{enumerate}
 \end{preview}
 \end{document}
