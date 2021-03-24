@@ -171,9 +171,6 @@ Internet: \Ecs@fromnetaddr}
   \parbox{100mm}{\center\LARGE\bf\@title}\par
   \vskip 1em
   \parbox{100mm}{\center\large\@author}\par
-%   \vskip 1em
-%    \parbox{100mm}{\center\large \@supervisor}\par 
-%   \vskip 1em
   {\large \@date \par}
   \vskip 1em
   \parbox{100mm}{\center Submitted in partial fulfilment of the requirements
@@ -185,7 +182,7 @@ Internet: \Ecs@fromnetaddr}
 {\bf Summary \vspace{-.5em}\vspace{0pt}}
 \end{center}
 \vskip 1ex
-\hskip\leftmargini\box\@abstract
+\hskip\leftmargini\box\@summary
 \vfill
 \end{titlepage}
 
@@ -195,9 +192,9 @@ Internet: \Ecs@fromnetaddr}
 \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\maketitle\relax
 }
 
-\newbox\@abstract
-\def\abstract{\global\setbox\@abstract\vbox\bgroup
+\newbox\@summary
+\def\summary{\global\setbox\@summary\vbox\bgroup
    \advance\linewidth -2\leftmargini
    \hsize\linewidth}
 
-\def\endabstract{\egroup}
+\def\endsummary{\egroup}
