@@ -3,10 +3,10 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{amsmath}
-\usepackage[procnames]{listings}
 \usepackage{xcolor}
 \usepackage[active,tightpage]{preview}
 \usepackage{hyperref}
+\usepackage{pythonhighlight}
 
 \hypersetup{ %color attributes of citation, link, etc.
     colorlinks=true,
@@ -32,18 +32,6 @@
 \definecolor{codegray}{gray}{1}
 \newcommand{\code}[1]{\colorbox{codegray}{\texttt{#1}}}
 
-\definecolor{keywords}{RGB}{255,0,90}
-\definecolor{comments}{RGB}{0,0,113}
-\definecolor{p_red}{RGB}{160,0,0}
-\definecolor{p_green}{RGB}{0,150,0} 
-\lstset{language=Python, 
-        basicstyle=\ttfamily\small, 
-        keywordstyle=\color{keywords},
-        commentstyle=\color{comments},
-        stringstyle=\color{p_red},
-        showstringspaces=false,
-        identifierstyle=\color{p_green},
-		procnamekeys={def,class}}
 
 \graphicspath{ {./images/} }
            
@@ -96,8 +84,6 @@
     \item Determine the centroid of the two dimensional object described in polar coordinates by
     $$ R = \{ (r, \theta): 0 \leq r \leq \theta, \theta \in [0, 2\pi] \} $$\\
 
-
-
 \end{enumerate}
 
 \item Vector Fields
@@ -107,14 +93,14 @@
     
     \begin{align*}
         \mathrm{div} \; \textbf{F} &= \frac{\partial f}{\partial x } + \frac{\partial g}{\partial y } + \frac{\partial h}{\partial z }\\
-        &= 2xy^3z^4 -yz=1
+        &= 2xy^3z^4 - xz + 1
     \end{align*}
 
     \item Calculate the curl of the vector field $\textbf{F} = x^2y^3z^4 \textbf{i} - xyz \textbf{j} + (x+y+z) \textbf{k}$
     
     \begin{align*}
-        \mathrm{curl} \; \textbf{F} &= \left( \frac{\partial h}{\partial y} - \frac{\partial g}{\partial z} \right) \textbf{i} + \left( \frac{\partial f}{\partial z} - \frac{\partial h}{\partial x} \right) \textbf{j} + \left( \frac{\partial g}{\partial x} - \frac{\partial f}{\partial y} \right) \textbf{k}\\\\
-        &= \left( 1 + xy \right) \textbf{i} + \left( 4x^2y^3z^3 - 1 \right) \textbf{j} - \left( yz + 3x^2y^2x^4 \right) \textbf{k}\\
+        \mathrm{curl} \; \textbf{F} &= \left( \frac{\partial h}{\partial y} - \frac{\partial g}{\partial z} \right) \textbf{i} - \left( \frac{\partial f}{\partial z} - \frac{\partial h}{\partial x} \right) \textbf{j} + \left( \frac{\partial g}{\partial x} - \frac{\partial f}{\partial y} \right) \textbf{k}\\\\
+        &= \left( 1 + xy \right) \textbf{i} - \left( 4x^2y^3z^3 - 1 \right) \textbf{j} - \left( yz + 3x^2y^2x^4 \right) \textbf{k}\\
     \end{align*}
 
     \item Determine the gradient field of $\phi(x,y,z) = xz^2 + sin(y)e^x$
@@ -179,9 +165,78 @@
         &= \left(\frac{5}{2} \times 16\right) - \left(\frac{2}{3} \times 64 \right) - \left(\frac{5}{2}\right) + \left(\frac{2}{3} \right)\\
         &= -4.5
     \end{align*}
+
+    \item Calculate the value of the line integral $\int_C \textbf{F} \cdot \; d \textbf{r}$ where $F$ is the gradient field of $$ \phi = \cos(x \sin(ye^z) ) $$
+    and $C$ is described by the vector-valued function 
+    $$ \textbf{r}(t) = \left( \pi \cos(\frac{\pi t}{2}) \right) \textbf{i} + \left( \frac{\pi}{2} + \sin(8 \pi t) \right) \textbf{j}  + \left(t-t^2\right) \textbf{k} \;\;\;\;\;\; \mathrm{for} \;\;\;\;\;\; t \in [0,1] $$
+
+    \begin{align*}
+        \int_C \textbf{F}(x,y,z) \cdot \; d \textbf{r} &= \phi(x_1, y_1, z_1) - \phi(x_0, y_0, z_0)\\\\
+        \textbf{r}(0) &= \left( \pi \cos(0) \right) \textbf{i} + \left( \frac{\pi}{2} + \sin(0) \right) \textbf{j}  + \left(0\right) \textbf{k}\\
+        &= \pi \textbf{i} + \frac{\pi}{2} \textbf{j} + 0 \textbf{k}\\
+        &\therefore (x_0, y_0, z_0) = (\pi, \frac{\pi}{2}, 0)\\\\
+        \textbf{r}(1) &= \left( \pi \cos(\frac{\pi}{2}) \right) \textbf{i} + \left( \frac{\pi}{2} + \sin(8 \pi) \right) \textbf{j}  + \left(1-1^2\right) \textbf{k}\\
+        &= 0 \textbf{i} + \frac{\pi}{2} \textbf{j} + 0 \textbf{k}\\
+        &\therefore (x_1, y_1, z_1) = (0, \frac{\pi}{2}, 0)\\\\
+        \int_C \textbf{F}(x,y,z) \cdot \; d \textbf{r} &= \phi(0, \frac{\pi}{2}, 0) - \phi(\pi, \frac{\pi}{2}, 0)\\
+        &= \cos(0 \times \sin(\frac{\pi}{2} e^0)) - \cos(\pi \times \sin(\frac{\pi}{2} e^0))\\
+        &= 2
+    \end{align*}
+
+
+    % $$ \textbf{F}(x,y) = \left( -2xe^{-x^2}\sin(y) \right) \textbf{i} + \left( 1+e^{-x^2}\cos(y) \right) \textbf{j} $$
+\end{enumerate}
+
+\item Lab questions
+
+\begin{enumerate}
+    \item
+\begin{enumerate}
+    \item The coordinates at s = 10.0 are: $(x,y) = (-2.81794675549219,-0.3112599911165987)$
+    
+    \begin{center}
+        \includegraphics[width = 0.6\textwidth]{Figure_1.png}
+    \end{center}
+
+    \item 
+    \texttt{For $h = 0.01$ : $K(s=5) = 1.2001127248505328$\\
+            For $h = 0.005$ : $K(s=5) = 1.2001135935941987$\\
+            For $h = 0.001$ : $K(s=5) = 1.200113871589581$\\
+            For $h = 0.0005$ : $K(s=5) = 1.2001138802762434$\\}
+
+    $K(s=5) \approx 1.20011 $\\
+    
+
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+    \item \texttt{The coordinates at t = 2 are: \\$(x,y,z) = (-0.5580567444088435,-0.2720113135900402,0.11995195426460033)$}
+    \begin{center}
+        \hspace{-50pt}
+        \includegraphics[width = 0.9\textwidth]{Figure_2.png}
+    \end{center}
+
+    \item Determine the unit tangent, principal unit normal and binormal vectors at t = 2
+    \begin{center}
+        \hspace{-50pt}
+        \includegraphics[width = 0.7\textwidth]{Figure_3.png}
+    \end{center}
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+    \item The integral evaluates to: 8906.117634354592
+    \item The integral evaluates to: 10.787064853079256
 \end{enumerate}
 
 \end{enumerate}
+
+\end{enumerate}
+
+\section*{Lab Code}
+
+\inputpython{Lab/lab_questions.py}{1}{1000}
 
 \end{preview}
 \end{document}
