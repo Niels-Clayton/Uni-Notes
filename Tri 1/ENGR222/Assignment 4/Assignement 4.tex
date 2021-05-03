@@ -1,0 +1,149 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[left=2.5cm, right=2.5cm, top=1.5cm, bottom=1.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[active,tightpage]{preview}
+\usepackage{hyperref}
+\usepackage{pythonhighlight}
+
+\hypersetup{ %color attributes of citation, link, etc.
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=gray,
+    urlcolor=blue,
+    citecolor=blue,
+}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{amsmath}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand{\PreviewBorder}{1in}
+\newcommand{\Newpage}{\end{preview}\begin{preview}}
+\newcommand{\matlab}{\textsc{Matlab}} %very important and totally necessary addition
+\newcommand{\parallelsum}{\mathbin{\!/\mkern-5mu/\!}}
+
+\newcommand\Item[1][]{%
+  \ifx\relax#1\relax  \item \else \item[#1] \fi
+  \abovedisplayskip=0pt\abovedisplayshortskip=0pt~\vspace*{-\baselineskip}}
+
+%'codify' text for snippets
+\usepackage{xcolor}
+\definecolor{codegray}{gray}{1}
+\newcommand{\code}[1]{\colorbox{codegray}{\texttt{#1}}}
+
+
+\graphicspath{ {./images/} }
+
+\title{\LARGE{\textbf{ENGR222 Assignment 4}}}
+\author{Niels Clayton : 300437590}
+\date{}
+
+           
+\begin{document}
+\begin{preview}
+    \maketitle
+    \hrule
+
+    % % % % % % % % % % %
+    % Document Content  %
+    % % % % % % % % % % %
+    
+    \begin{enumerate}
+        \setcounter{enumi}{3}
+
+        \item
+
+        \begin{align*}
+            aug &=
+            \begin{bmatrix}[cccc|c]
+                1&-1&2&4&2\\ 
+                3&-3&1&2&1\\ 
+                2&-1&1&0&-1\\ 
+                2&-6&1&10&9
+            \end{bmatrix}
+        \end{align*}
+
+        Solved using the python sympy library:
+
+        \inputpython{Assignment 4.py}{15}{22}
+
+        $$ (x,y,z,w) = (2w-2, 2w-2, 1-2w, w) $$
+
+        \item
+
+        \begin{align*}
+            aug &=
+            \begin{bmatrix}[cccc|c]
+                1&2&2&3&0\\ 
+                -4&-8&-8&-9&0\\ 
+                2&4&1&0&3\\ 
+                1&2&-2&-4&4
+            \end{bmatrix}
+        \end{align*}
+
+        Solved using the python sympy library:
+
+        \inputpython{Assignment 4.py}{25}{32}
+
+        $$ (x,y,z,w) = (2-2y, y, -1, 0) $$\\
+
+
+        \setcounter{enumi}{6}
+
+        \item $a CH_4 + b O_2\rightarrow c CO_2 +d H_2O$
+
+        \begin{align*}
+            C&: a=c \rightarrow 1a + 0b - 1c +0d =0\\
+            H&: 4a = 2d \rightarrow 4a + 0b + 0c - 2d = 0\\
+            O&: 2b = 2c \rightarrow 0a + 2b - 2c = 0d = 0\\\\
+            aug &= \begin{bmatrix}[cccc|c]
+                1&0&-1&0&0\\ 
+                4&0&0&-2&0\\ 
+                0&2&-2&1&0
+            \end{bmatrix}\\\\
+            (a,b,c,d) &= (1,2,1,2)
+        \end{align*}
+
+        \item
+
+        \begin{align*}
+            x&: (1,0) \rightarrow (-1, 0.3)\\
+            y&: (0,1) \rightarrow (0.2, 0.5)\\\\
+            A &= \begin{bmatrix}[cc]
+                -1&0.2\\ 
+                0.3&0.5\\ 
+            \end{bmatrix}\\\\
+        \end{align*}
+
+        \setcounter{enumi}{9}
+
+        \item
+
+        \begin{itemize}
+            \item Rotate the x-axis 20$^o$
+            \item Reflect about the x-axis
+            \item Rotate the x-axis -20$^o$
+        \end{itemize}
+
+        \begin{align*}
+            &=\begin{bmatrix}\cos\left(20\right)&-\sin\left(20\right)\\ \:\:\:\:\sin\left(20\right)&\cos\left(20\right)\end{bmatrix}\begin{bmatrix}1&0\\ \:\:\:\:0&-1\end{bmatrix}\begin{bmatrix}\cos\left(20\right)&\sin\left(20\right)\\ \:\:\:-\sin\left(20\right)&\cos\left(20\right)\end{bmatrix}\\
+            &=\begin{bmatrix}\cos \left(20\right)&\sin \left(20\right)\\ \sin \left(20\right)&-\cos \left(20\right)\end{bmatrix}\begin{bmatrix}\cos\left(20\right)&\sin\left(20\right)\\ \:\:\:-\sin\left(20\right)&\cos\left(20\right)\end{bmatrix}\\\\
+            &=\begin{bmatrix}\cos ^2\left(20\right)-\sin ^2\left(20\right)&2\cos \left(20\right)\sin \left(20\right)\\ 2\sin \left(20\right)\cos \left(20\right)&\sin ^2\left(20\right)-\cos ^2\left(20\right)\end{bmatrix}\\\\
+            &=\begin{bmatrix}
+                0.7660 & 0.6428\\
+                0.6428 & -0.7660
+            \end{bmatrix}
+        \end{align*}
+
+    \end{enumerate}
+
+\end{preview}
+\end{document}
