@@ -1,0 +1,96 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[left=2.5cm, right=2.5cm, top=1.5cm, bottom=1.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[active,tightpage]{preview}
+\usepackage{hyperref}
+\usepackage{pythonhighlight}
+
+\hypersetup{ %color attributes of citation, link, etc.
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=gray,
+    urlcolor=blue,
+    citecolor=blue,
+}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{amsmath}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand{\PreviewBorder}{1in}
+\newcommand{\Newpage}{\end{preview}\begin{preview}}
+\newcommand{\matlab}{\textsc{Matlab}} %very important and totally necessary addition
+\newcommand{\parallelsum}{\mathbin{\!/\mkern-5mu/\!}}
+
+\newcommand\Item[1][]{%
+  \ifx\relax#1\relax  \item \else \item[#1] \fi
+  \abovedisplayskip=0pt\abovedisplayshortskip=0pt~\vspace*{-\baselineskip}}
+
+%'codify' text for snippets
+\usepackage{xcolor}
+\definecolor{codegray}{gray}{1}
+\newcommand{\code}[1]{\colorbox{codegray}{\texttt{#1}}}
+
+
+\graphicspath{ {./images/} }
+
+\title{\LARGE{\textbf{ENGR222 Assignment 4}}}
+\author{Niels Clayton : 300437590}
+\date{}
+
+           
+\begin{document}
+\begin{preview}
+    \maketitle
+    \hrule
+
+    % % % % % % % % % % %
+    % Document Content  %
+    % % % % % % % % % % %
+    
+    \begin{enumerate}
+        \setcounter{enumi}{1}
+        \item Suppose $T : \mathbb{R}^3 \rightarrow \mathbb{R}^4$ is a linear transformation, and
+        \begin{align*}
+              T(2, 0,-1) = 1, 0,2, 1),\;
+              T(0, 1,1) = (-4, 3,1, 0),\;
+              T(-3, 1,2) = (0, 1,-2, 0)
+        \end{align*}
+        Find the matrix $A$ so that $T\textbf{v}=A\textbf{v}$ for all $\textbf{v} \in \mathbb{R}^3$
+
+
+        \item Find the matrix for the projection $\mathbb{R}^3 \rightarrow \mathbb{R}^2$ onto $yz$-plane (i.e., $(x,y,z) \rightarrow (y,z)$)
+        
+
+        \item Find the eigenvalues and eigenvectors for each eigenvalue of the following: 
+        \begin{align*}
+              \begin{bmatrix}-2&1&-1\\ 19&-5&4\\ 43&-13&12\end{bmatrix}
+        \end{align*}
+
+
+
+        
+  \end{enumerate}
+
+\end{preview}
+\end{document}
+
+
+
+% \begin{align*}
+%     aug &=
+%     \begin{bmatrix}[cccc|c]
+%         1&-1&2&4&2\\ 
+%         3&-3&1&2&1\\ 
+%         2&-1&1&0&-1\\ 
+%         2&-6&1&10&9
+%     \end{bmatrix}
+% \end{align*}
