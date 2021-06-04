@@ -29,6 +29,9 @@
 \newcommand{\Newpage}{\end{preview}\begin{preview}}
 \newcommand{\matlab}{\textsc{Matlab}} %very important and totally necessary addition
 \newcommand{\parallelsum}{\mathbin{\!/\mkern-5mu/\!}}
+\newcommand{\hdotrule}[1]{\hbox to \textwidth{\leaders\hbox to #1pt{\hss . \hss}\hfil}}
+
+
 
 \newcommand\Item[1][]{%
   \ifx\relax#1\relax  \item \else \item[#1] \fi
@@ -42,7 +45,7 @@
 
 \graphicspath{ {./images/} }
 
-\title{\LARGE{\textbf{ENGR222 Assignment 4}}}
+\title{\LARGE{\textbf{ENGR222 Assignment 6}}}
 \author{Niels Clayton : 300437590}
 \date{}
 
@@ -55,30 +58,41 @@
     % % % % % % % % % % %
     % Document Content  %
     % % % % % % % % % % %
-    
+
+	\section*{Blackboard Qs}
     \begin{enumerate}
-        \setcounter{enumi}{1}
-        \item Suppose $T : \mathbb{R}^3 \rightarrow \mathbb{R}^4$ is a linear transformation, and
-        \begin{align*}
-              T(2, 0,-1) = 1, 0,2, 1),\;
-              T(0, 1,1) = (-4, 3,1, 0),\;
-              T(-3, 1,2) = (0, 1,-2, 0)
-        \end{align*}
-        Find the matrix $A$ so that $T\textbf{v}=A\textbf{v}$ for all $\textbf{v} \in \mathbb{R}^3$
+          \item Least Squares:
+          \item Find Distances:
+          \item Approximate Line:
+    \end{enumerate}
 
+	\section*{PDF Questions}
 
-        \item Find the matrix for the projection $\mathbb{R}^3 \rightarrow \mathbb{R}^2$ onto $yz$-plane (i.e., $(x,y,z) \rightarrow (y,z)$)
-        
+	\begin{enumerate}
+		\setcounter{enumi}{1}
+		\item Suppose $S$ is the subspace in $\mathbb{R}^4$ is spanned by $\begin{pmatrix} 1\\1\\1\\1 \end{pmatrix},\begin{pmatrix} 1\\1\\0\\0 \end{pmatrix},\begin{pmatrix} 0\\0\\1\\1 \end{pmatrix}$. 
+		
+		Find the point $P$ closest to $\begin{pmatrix}1\\3\\8\\2\end{pmatrix}$ (i.e. orthogonal projection).
 
-        \item Find the eigenvalues and eigenvectors for each eigenvalue of the following: 
-        \begin{align*}
-              \begin{bmatrix}-2&1&-1\\ 19&-5&4\\ 43&-13&12\end{bmatrix}
-        \end{align*}
+		\hdotrule{5}
+		
 
+		\begin{python}
+		\end{python}
 
+		\setcounter{enumi}{4}
+		\item Let $T : \mathbb{R}^2 \rightarrow \mathbb{R}^3$ is the linear transformation whose matrix is $A = \begin{pmatrix}
+			  7 &\, 1 \\ 0 &\, 0 \\ 5 &\, 5 
+		\end{pmatrix}$. 
+		
+		The image of the circle of radius 1 with centre at $(0,0)$ under $T$ is an eclipse with the centre at $(0,0,0)$. 
+		
+		Find the points on this ellipse farthest from $(0,0,0)$ and the points closest to $(0,0,0)$.
 
-        
-  \end{enumerate}
+		\hdotrule{5}
+
+	\end{enumerate}
+
 
 \end{preview}
 \end{document}
