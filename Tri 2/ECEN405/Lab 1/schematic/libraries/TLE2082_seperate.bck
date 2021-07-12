@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TLE2082
+D High Speed Dual Comparator, DIP-14/SOIC-14
+K cmp open collector
+F http://www.ti.com/lit/ds/symlink/lm319-n.pdf
+$ENDCMP
+#
+#End Doc Library
