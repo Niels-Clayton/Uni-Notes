@@ -1,0 +1,184 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L TLE2082:TLE2082AID U?
+U 1 1 60EBA0D0
+P 3300 1250
+F 0 "U?" H 3300 1850 60  0000 C CNN
+F 1 "TLE2082AID" H 3300 1700 60  0000 C CNN
+F 2 "D8" H 4500 1490 60  0001 C CNN
+F 3 "" H 3300 1250 60  0000 C CNN
+	1    3300 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 60EBA7C6
+P 4050 950
+F 0 "#PWR?" H 4050 800 50  0001 C CNN
+F 1 "VCC" H 4065 1123 50  0000 C CNN
+F 2 "" H 4050 950 50  0001 C CNN
+F 3 "" H 4050 950 50  0001 C CNN
+	1    4050 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60EBB063
+P 2550 1550
+F 0 "#PWR?" H 2550 1300 50  0001 C CNN
+F 1 "GND" H 2555 1377 50  0000 C CNN
+F 2 "" H 2550 1550 50  0001 C CNN
+F 3 "" H 2550 1550 50  0001 C CNN
+	1    2550 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2600 1400 2550 1400
+Wire Wire Line
+	2550 1400 2550 1550
+Wire Wire Line
+	4000 1100 4050 1100
+Wire Wire Line
+	4050 1100 4050 950 
+$Comp
+L Device:R_Small R?
+U 1 1 60EBC332
+P 850 1000
+F 0 "R?" H 909 1046 50  0000 L CNN
+F 1 "10k" H 909 955 50  0000 L CNN
+F 2 "" H 850 1000 50  0001 C CNN
+F 3 "~" H 850 1000 50  0001 C CNN
+	1    850  1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 60EBC6A9
+P 850 1400
+F 0 "R?" H 909 1446 50  0000 L CNN
+F 1 "10k" H 909 1355 50  0000 L CNN
+F 2 "" H 850 1400 50  0001 C CNN
+F 3 "~" H 850 1400 50  0001 C CNN
+	1    850  1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 60EBCC39
+P 850 800
+F 0 "#PWR?" H 850 650 50  0001 C CNN
+F 1 "VCC" H 865 973 50  0000 C CNN
+F 2 "" H 850 800 50  0001 C CNN
+F 3 "" H 850 800 50  0001 C CNN
+	1    850  800 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60EBD04E
+P 850 1600
+F 0 "#PWR?" H 850 1350 50  0001 C CNN
+F 1 "GND" H 855 1427 50  0000 C CNN
+F 2 "" H 850 1600 50  0001 C CNN
+F 3 "" H 850 1600 50  0001 C CNN
+	1    850  1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	850  1500 850  1600
+Wire Wire Line
+	850  900  850  800 
+Wire Wire Line
+	850  1100 850  1200
+Wire Wire Line
+	850  1200 1000 1200
+Connection ~ 850  1200
+Wire Wire Line
+	850  1200 850  1300
+Text GLabel 1000 1200 2    50   Input ~ 0
+Vref
+Text GLabel 2500 1200 0    50   Input ~ 0
+Vref
+Wire Wire Line
+	2500 1200 2600 1200
+Text GLabel 4100 1400 2    50   Input ~ 0
+Vref
+Wire Wire Line
+	4000 1400 4100 1400
+$Comp
+L Device:R_Small R?
+U 1 1 60EC3B2F
+P 1900 1000
+F 0 "R?" H 1959 1046 50  0000 L CNN
+F 1 "10k" H 1959 955 50  0000 L CNN
+F 2 "" H 1900 1000 50  0001 C CNN
+F 3 "~" H 1900 1000 50  0001 C CNN
+	1    1900 1000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2600 1100 2250 1100
+Wire Wire Line
+	2250 1100 2250 850 
+Wire Wire Line
+	2250 850  1900 850 
+Wire Wire Line
+	1900 850  1900 900 
+Wire Wire Line
+	1900 1100 1900 1200
+Wire Wire Line
+	1900 1500 1900 1550
+Wire Wire Line
+	1900 1550 2250 1550
+Wire Wire Line
+	2250 1550 2250 1300
+Wire Wire Line
+	2250 1300 2600 1300
+$Comp
+L Device:R_Variable R?
+U 1 1 60EC55AB
+P 1900 1350
+F 0 "R?" H 2028 1396 50  0000 L CNN
+F 1 "1M" H 2028 1305 50  0000 L CNN
+F 2 "" V 1830 1350 50  0001 C CNN
+F 3 "~" H 1900 1350 50  0001 C CNN
+	1    1900 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Comparator:LM319 U?
+U 1 1 60ED4F53
+P 5200 1200
+F 0 "U?" H 5200 1567 50  0000 C CNN
+F 1 "LM319" H 5200 1476 50  0000 C CNN
+F 2 "" H 5200 1200 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm319-n.pdf" H 5200 1200 50  0001 C CNN
+	1    5200 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Comparator:LM319 U?
+U 3 1 60ED562E
+P 5750 1200
+F 0 "U?" H 5708 1246 50  0000 L CNN
+F 1 "LM319" H 5708 1155 50  0000 L CNN
+F 2 "" H 5750 1200 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm319-n.pdf" H 5750 1200 50  0001 C CNN
+	3    5750 1200
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
