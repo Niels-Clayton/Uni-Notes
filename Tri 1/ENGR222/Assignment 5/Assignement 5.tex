@@ -53,27 +53,107 @@
     \hrule
 
     % % % % % % % % % % %
-    % Document Content  %
+    % Document Content  %S
     % % % % % % % % % % %
     
     \begin{enumerate}
         \setcounter{enumi}{1}
         \item Suppose $T : \mathbb{R}^3 \rightarrow \mathbb{R}^4$ is a linear transformation, and
         \begin{align*}
-              T(2, 0,-1) = 1, 0,2, 1),\;
+              T(2, 0,-1) = (1, 0,2, 1),\;
               T(0, 1,1) = (-4, 3,1, 0),\;
               T(-3, 1,2) = (0, 1,-2, 0)
         \end{align*}
         Find the matrix $A$ so that $T\textbf{v}=A\textbf{v}$ for all $\textbf{v} \in \mathbb{R}^3$
 
+		$$
+        	A \begin{bmatrix}[c]
+            	2\\
+				0\\
+				-1
+        	\end{bmatrix} =
+			\begin{bmatrix}[c]
+            	1\\
+				0\\
+				2\\
+				1
+        	\end{bmatrix}, \;
+			A \begin{bmatrix}[c]
+            	0\\
+				1\\
+				1
+        	\end{bmatrix} =
+			\begin{bmatrix}[c]
+            	-4\\
+				3\\
+				1\\
+				0
+        	\end{bmatrix}, \;
+			A \begin{bmatrix}[c]
+            	-3\\
+				1\\
+				2
+        	\end{bmatrix} =
+			\begin{bmatrix}[c]
+            	0\\
+				1\\
+				-2\\
+				0
+        	\end{bmatrix}
+			$$
+
+			$$ A \begin{bmatrix}2&0&-3\\0&1&1\\-1&1&2\end{bmatrix} = \begin{bmatrix}1&-4&0\\0&3&1\\2&1&-2\\1&0&0\end{bmatrix}$$
+
+			$$ A = \begin{bmatrix}1&-4&0\\0&3&1\\2&1&-2\\1&0&0\end{bmatrix} \begin{bmatrix}2&0&-3\\0&1&1\\-1&1&2\end{bmatrix}^{-1} $$
+
+			$$ A = \begin{bmatrix}-5&7&-11\\ 2&-1&4\\ 1&1&0\\ -1&3&-3\end{bmatrix}$$
 
         \item Find the matrix for the projection $\mathbb{R}^3 \rightarrow \mathbb{R}^2$ onto $yz$-plane (i.e., $(x,y,z) \rightarrow (y,z)$)
         
+        \begin{align*}
+        	x: \; \begin{bmatrix}[c]
+            	1\\
+				0\\
+				0
+        	\end{bmatrix} &\rightarrow
+			\begin{bmatrix}[c]
+            	0\\
+				0
+        	\end{bmatrix}\\
+			y: \; \begin{bmatrix}[c]
+            	0\\
+				1\\
+				0
+        	\end{bmatrix} &\rightarrow
+			\begin{bmatrix}[c]
+            	1\\
+				0
+        	\end{bmatrix}\\
+			z: \; \begin{bmatrix}[c]
+            	0\\
+				0\\
+				1
+        	\end{bmatrix} &\rightarrow
+			\begin{bmatrix}[c]
+            	0\\
+				1
+        	\end{bmatrix}\\
+			A &\rightarrow 
+			\begin{bmatrix}
+				0&1&0\\
+				0&0&1
+        	\end{bmatrix}
+    	\end{align*}
 
         \item Find the eigenvalues and eigenvectors for each eigenvalue of the following: 
         \begin{align*}
               \begin{bmatrix}-2&1&-1\\ 19&-5&4\\ 43&-13&12\end{bmatrix}
         \end{align*}
+
+		\begin{alignat*}{3}
+			\mathrm{Eigenvalues:} \; &\lambda_1 = -1, \;\; &&\lambda_2 = 2, \;\; &&\lambda_3 = 4 \\
+			\mathrm{Eigenvectors:} \; &\textbf{v}_1 = \begin{pmatrix}0\\1\\1\end{pmatrix}, \; &&\textbf{v}_2= \begin{pmatrix}-1\\-1\\3\end{pmatrix}, \; &&\textbf{v}_3= \begin{pmatrix}-1\\1\\7\end{pmatrix}
+	  \end{alignat*}
 
 
 
@@ -82,15 +162,3 @@
 
 \end{preview}
 \end{document}
-
-
-
-% \begin{align*}
-%     aug &=
-%     \begin{bmatrix}[cccc|c]
-%         1&-1&2&4&2\\ 
-%         3&-3&1&2&1\\ 
-%         2&-1&1&0&-1\\ 
-%         2&-6&1&10&9
-%     \end{bmatrix}
-% \end{align*}

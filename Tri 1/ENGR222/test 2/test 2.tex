@@ -1,0 +1,157 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[left=2.5cm, right=2.5cm, top=1.5cm, bottom=1.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[active,tightpage]{preview}
+\usepackage{hyperref}
+\usepackage{pythonhighlight}
+
+\hypersetup{ %color attributes of citation, link, etc.
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=gray,
+    urlcolor=blue,
+    citecolor=blue,
+}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{amsmath}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand{\PreviewBorder}{1in}
+\newcommand{\Newpage}{\end{preview}\begin{preview}}
+\newcommand{\matlab}{\textsc{Matlab}} %very important and totally necessary addition
+\newcommand{\parallelsum}{\mathbin{\!/\mkern-5mu/\!}}
+
+\newcommand\Item[1][]{%
+  \ifx\relax#1\relax  \item \else \item[#1] \fi
+  \abovedisplayskip=0pt\abovedisplayshortskip=0pt~\vspace*{-\baselineskip}}
+
+%'codify' text for snippets
+\usepackage{xcolor}
+\definecolor{codegray}{gray}{1}
+\newcommand{\code}[1]{\colorbox{codegray}{\texttt{#1}}}
+
+
+\graphicspath{ {./images/} }
+
+\title{\LARGE{\textbf{Test 2}}}
+\author{Niels Clayton : 300437590}
+\date{}
+
+           
+\begin{document}
+\begin{preview}
+    \maketitle
+    \hrule
+
+    % % % % % % % % % % %
+    % Document Content  %
+    % % % % % % % % % % %
+    
+    \begin{enumerate}
+        \item Question 1
+
+        \begin{align*}
+            aug &=
+            \begin{bmatrix}[cccc|c]
+                3&3&-1-1&0\\ 
+                2&2&1&2&5\\ 
+                1&1&0&0&1
+            \end{bmatrix}
+        \end{align*}
+
+        Solved using the python sympy library:
+
+        \inputpython{test 2.py}{3}{7}
+
+        $$ (x,y,z,w) = (1-y, y, 3-2w, w) $$
+
+
+        \item Question 2
+
+        $$
+            T(1,0,0) \rightarrow \begin{bmatrix}[c] 2\\0\end{bmatrix}, \; 
+            T(0,1,0) \rightarrow \begin{bmatrix}[c] 3\\1 \end{bmatrix}, \;
+            T(0,0,1) \rightarrow \begin{bmatrix}[c] 0\\-4 \end{bmatrix}
+        $$
+        $$ \begin{bmatrix}[ccc] 2&3&0 \\ 0&1&-4  \end{bmatrix} $$
+
+        \item Question 3
+
+        \item Question 4
+
+        \begin{align*}
+            X: \begin{bmatrix}[c] 1\\0\\0\\0 \end{bmatrix}
+            \rightarrow \begin{bmatrix}[c] 0\\0 \end{bmatrix},\;
+            Y: \begin{bmatrix}[c] 0\\1\\0\\0\end{bmatrix}
+            \rightarrow \begin{bmatrix}[c] 1\\0 \end{bmatrix},\;
+            Z: \begin{bmatrix}[c] 0\\0\\1\\0\end{bmatrix}
+            \rightarrow \begin{bmatrix}[c] 0\\1 \end{bmatrix},\;
+            W: \begin{bmatrix}[c] 0\\0\\0\\1\end{bmatrix}
+            \rightarrow \begin{bmatrix}[c] 0\\0 \end{bmatrix}\\\\
+        \end{align*}
+        $$  A = \begin{bmatrix}[cccc] 0&1&0&0\\ 0&0&1&0 \end{bmatrix} $$
+
+        \item Question 5
+
+        $$ A = \begin{bmatrix}3&2&-6\\ \:\:-2&5&4\\ \:\:4&-3&-8\end{bmatrix} , \; V = \begin{bmatrix}-1\\ \:7\\ \:2\end{bmatrix}$$
+
+        $$ \begin{bmatrix}[c|c]
+            A^TA&A^TV
+        \end{bmatrix} $$
+
+        $$ A^TA = \begin{bmatrix}29&-16&-58\\ -16&38&32\\ -58&32&116\end{bmatrix} $$
+
+        $$ A^TV = \begin{bmatrix}-9\\ 27\\ 18\end{bmatrix} $$
+
+        $$ \begin{bmatrix}[c|c]
+            A^TA&A^TV
+        \end{bmatrix}  \rightarrow 
+        \begin{bmatrix}[ccc|c] 29&-16&-58&-9\\ -16&38&32&27\\ -58&32&116&18\end{bmatrix} $$
+
+        Row Reduce:
+        $$ \begin{bmatrix}[ccc|c] 1&0&-2&\frac{5}{47}\\ 0&1&0&\frac{71}{94}\\ 0&0&0&0\end{bmatrix} \rightarrow \begin{bmatrix}x \\ y \\ z \end{bmatrix} = \begin{bmatrix}2z + \frac{5}{47} \\ \frac{71}{94} \\ z\end{bmatrix}$$
+
+
+        \item Question 6
+
+
+
+        \item Question 7
+
+        $$ x = A^t \cdot v \rightarrow \begin{bmatrix}[cc] 1&0\\ 1&-1\\ 2&1 \end{bmatrix} 
+        \begin{bmatrix}[c] -2\\ 1\\ 4 \end{bmatrix}  $$
+
+        $$x = \begin{bmatrix}[c] 1\\1 \end{bmatrix}, \; Ax = \begin{bmatrix}[c] 1\\0\\3 \end{bmatrix} $$
+
+        \item Question 8
+
+        $$ A(n+1) = 0.7A(n)  + 0.1B(n) $$
+        $$ B(n+1) = 0.9B(n)  + 0.3A(n) $$
+
+        $$ \begin{bmatrix} A(n+1)\\B(n+1)\end{bmatrix} = \begin{bmatrix}[cc] 0.7&0.1\\0.3&0.9\end{bmatrix}\begin{bmatrix} A(n)\\B(n)\end{bmatrix}
+        $$
+
+        Calculate eigenvalues:
+        $$\lambda_1 = 1, \;\; \lambda_2 = \frac{3}{2} $$
+        $\lambda_1$ has eigenvector of $\begin{bmatrix} \frac{1}{3}\\1\end{bmatrix} = \begin{bmatrix} 1\\3\end{bmatrix}$\\\\
+
+        The tanks have 4000 gallons, therefore:
+        $$ A = 1000 \; \mathrm{Gallons}$$
+        $$ B = 3000 \; \mathrm{Gallons}$$
+
+
+        
+
+    \end{enumerate}
+
+\end{preview}
+\end{document}
