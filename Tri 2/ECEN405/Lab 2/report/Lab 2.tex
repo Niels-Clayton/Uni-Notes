@@ -45,11 +45,32 @@
 
 \begin{enumerate}
 
-    \item 
+    \item $ L = 3.7mH $\\
+    $ C = 5.3 \mu H $\\
+
+    \item $f_d = 4400$Hz\\
+
+    \item $R_D = 4.3k\Omega$
 
 \end{enumerate}
 
 \section*{Appendix}
+
+\begin{enumerate}
+  \item $ f = 22k\mathrm{Hz}, \;\;\; V_o = 20V, \;\;\; V_in=30V, \;\;\; R_L=100\Omega $
+  \begin{align*}
+    D\ &=\ \frac{V_{o}}{V_{in}} = 0.6\bar{6}\\
+    I_{L}&=\frac{V_{o}}{R_{L}} = 0.2A\\
+    I_{ripple}&=I_{L}\cdot0.4 = 0.24A\\\\
+    L&=\frac{V_{o}\cdot\left(1-D\right)}{f\cdot I_{ripple}} = 3.7mH
+  \end{align*}
+
+  \item The converter will become discontinuious when the ripple current is twice the average inductor current, therefore we can rearrange for $f$:
+  $$ f_{d}=\frac{V_{o}\cdot\left(1-D\right)}{L\cdot2I_{L}} = 4400\mathrm{Hz}$$
+
+  \item I took the points of $(0\Omega , 0.4\mu s)$, $(200k\Omega , 5ns)$ and linearised, then rearranged to find the resistance at $0.5\mu s$:
+  $$ R_{D}=\frac{\left(D_{t}-0.4\right)\cdot200k}{5-0.4} = 4.373k\Omega$$
+\end{enumerate}
 
 
 \end{preview}
