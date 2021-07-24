@@ -46,7 +46,7 @@
 \begin{enumerate}
 
     \item $ L = 3.7mH $\\
-    $ C = 5.3 \mu H $\\
+    $ C = 5.3 \mu F $\\
 
     \item $f_d = 4400$Hz\\
 
@@ -54,7 +54,7 @@
     
     \item Deadtime is the period of time between the the switch off of one MOSFET, and the switch on of another. This is to prevent there being a direct path to ground through both of the MOSFETS when they switch, known as 'shoot-through'.\\
     
-    \item To keep the output voltage constant while varying the input, a control system with negative feedback from the output voltage should be used. This control system would look at the output voltage and then control the duty cycle of the PWM to keep the output constant.\\
+    \item To keep the output voltage constant while varying the input, a control system with feedback from the output voltage should be used. This control system would look at the output voltage (usually through a voltage divider for selectable output voltage) and then control the duty cycle of the PWM to keep the output constant.\\
 
     \item The waveform shown below is from the source of the high-side MOSFET. This signal looks mostly the same as the PWM control signal into the gate driver, with a 10\% duty cycle, and a 22kHz frequency. The major difference however, is that it now has a peak to peak voltage of 30V, as that is the supply into the drain of the high side MOSFET. 
 
@@ -64,13 +64,13 @@
 
     \item 
 
-    From the efficiency vs output current plot below we can se that as the output current increases the efficiency will greatly increase, tapering off at 0.1mA. This lower efficiency at lower output currents will be due to the constant switching losses making up a larger portion of the total power output.
+    From the efficiency vs output current plot below we can see that as the output current increases the efficiency will greatly increase, tapering off at 0.100mA. This lower efficiency at lower output currents will be due to the constant switching losses making up a larger portion of the total power output.
 
     \begin{center}
       \includegraphics[width=0.8\textwidth]{effeciency.png}  
     \end{center}
 
-    \item The bootstrap capacitor is used to help drive the high-side MOSFET. this is required as the source of this MOSFET is floating, meaning that we may not be able to provide the correct $V_{GS}$ to turn on the MOSFET. 
+    \item The bootstrap capacitor is used to help drive the high-side MOSFET. this is required as the source of this MOSFET is floating, meaning that we may not know the correct $V_{GS_{on}}$ to turn on the MOSFET. The bootstrap capacitor will charge to a voltage greater than the supply, ensuring that we are able to drive the high-side MOSFET.
 
 \end{enumerate}
 

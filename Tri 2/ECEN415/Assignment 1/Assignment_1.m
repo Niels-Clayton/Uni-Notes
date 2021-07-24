@@ -60,7 +60,7 @@ nyquist(G_open);
 
 %%
 
-P = 2.294; % system with my gain corsses real at -0.436, so the gain needed to make unstable is -1/-0.436
+P = 2.294; % system with no gain corsses real at -0.436, so the gain needed to make unstable is -1/-0.436
 G_closed_stable = feedback(G_open, 1);
 G_closed_unstable = feedback(G_open, P);
 
