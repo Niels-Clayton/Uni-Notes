@@ -84,7 +84,7 @@ The non-synchronous buck converter topology offers a simpler to implement and of
     \includegraphics[width=0.8\textwidth]{discontinuious_opperation.png}
   \end{center}
 
-
+The voltage waveform shown about is produces by causing the non-synchronous converter to operate in discontinuous conduction mode. In discontinuous conduction mode, the inductor will completely discharge, causing the current through it to be zero. when this occurs it will no longer be able to supply the load, causing the load to draw all its current from the capacitor. This can be seen in the image above. The initial high voltage peak that occurs during the on period of the PWM charged the inductor. Once the PWM switches to the off period we see the voltage return to ground until it suddenly spikes again and ramps down towards ground. This secondary spike and ramp correspond with the inductor becoming fully discharged, what we observe is the remaining capacitor voltage being discharged across the load, hence the downwards ramp.
 
 \end{preview}
 \end{document}

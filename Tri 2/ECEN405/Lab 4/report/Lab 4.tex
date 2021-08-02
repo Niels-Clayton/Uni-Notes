@@ -1,0 +1,60 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[left=2.5cm, right=2.5cm, top=1.5cm, bottom=1.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage[active,tightpage]{preview}
+\usepackage{hyperref}
+\usepackage{pythonhighlight}
+
+\hypersetup{ %color attributes of citation, link, etc.
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=gray,
+    urlcolor=blue,
+    citecolor=blue,
+}
+
+\setlength{\parindent}{0pt}
+
+\renewcommand{\PreviewBorder}{1in}
+\newcommand{\Newpage}{\end{preview}\begin{preview}}
+\newcommand{\matlab}{\textsc{Matlab}} %very important and totally necessary addition
+\newcommand{\parallelsum}{\mathbin{\!/\mkern-5mu/\!}}
+
+\newcommand\Item[1][]{%
+  \ifx\relax#1\relax  \item \else \item[#1] \fi
+  \abovedisplayskip=0pt\abovedisplayshortskip=0pt~\vspace*{-\baselineskip}}
+
+%'codify' text for snippets
+\usepackage{xcolor}
+\definecolor{codegray}{gray}{1}
+\newcommand{\code}[1]{\colorbox{codegray}{\texttt{#1}}}
+
+
+\graphicspath{ {../images/} }
+           
+\begin{document}
+\begin{preview}
+\title{\LARGE{\textbf{ECEN405 Lab 4 Report\\Boost Converter}}}
+\author{Niels Clayton : 300437590\\\textbf{Lab Partner:} Nickolai Wolfe}
+\date{}
+\maketitle
+\hrule
+
+\section{Boost Converter Calculations}
+
+
+\section{Low Side MOSFET Drain Voltage}
+
+
+\section{Boost Converter Efficiency vs Output Current}
+
+\hrule
+
+\section*{\\Appendix}
+
+
+\end{preview}
+\end{document}
