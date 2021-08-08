@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name IR2117SPBF)(type Legacy)(uri ${KIPRJMOD}/libraries/IR2117SPBF.lib)(options "")(descr ""))
+)
