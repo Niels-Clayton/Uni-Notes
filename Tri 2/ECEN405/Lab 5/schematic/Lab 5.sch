@@ -53,22 +53,16 @@ Wire Wire Line
 $Comp
 L Device:C_Small C?
 U 1 1 610FA5FA
-P 1400 1625
-F 0 "C?" H 1492 1671 50  0000 L CNN
-F 1 "10u 50V" H 1492 1580 50  0000 L CNN
-F 2 "" H 1400 1625 50  0001 C CNN
-F 3 "~" H 1400 1625 50  0001 C CNN
-	1    1400 1625
+P 1400 1975
+F 0 "C?" H 1200 1900 50  0000 L CNN
+F 1 "10u 50V" H 1025 1825 50  0000 L CNN
+F 2 "" H 1400 1975 50  0001 C CNN
+F 3 "~" H 1400 1975 50  0001 C CNN
+	1    1400 1975
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1400 1725 1400 1875
-Connection ~ 1400 2075
-Wire Wire Line
 	1600 1875 1400 1875
-Connection ~ 1400 1875
-Wire Wire Line
-	1400 1875 1400 2075
 Wire Wire Line
 	1600 1975 1050 1975
 Text Label 1050 1975 0    50   ~ 0
@@ -84,8 +78,6 @@ F 3 "~" H 2225 1300 50  0001 C CNN
 	1    2225 1300
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	1400 1525 1400 1300
 Wire Wire Line
 	2075 1300 1400 1300
 Connection ~ 1400 1300
@@ -269,4 +261,12 @@ Wire Wire Line
 Wire Wire Line
 	5550 2850 4975 2850
 Connection ~ 4975 2850
+Wire Wire Line
+	1400 1300 1400 1875
+Connection ~ 1400 1875
+Connection ~ 1400 2075
+Text Notes 5625 2425 0    50   ~ 0
+-
+Text Notes 5625 2850 0    50   ~ 0
++
 $EndSCHEMATC
