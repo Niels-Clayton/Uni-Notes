@@ -265,4 +265,8 @@ Wire Wire Line
 	1400 1300 1400 1875
 Connection ~ 1400 1875
 Connection ~ 1400 2075
+Text Notes 5625 2425 0    50   ~ 0
+-
+Text Notes 5625 2850 0    50   ~ 0
++
 $EndSCHEMATC
