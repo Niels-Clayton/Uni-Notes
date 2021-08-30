@@ -45,25 +45,25 @@
 
 \section{Design}
     $V_d=10V,\; R_L=500\Omega,\; L=4mH,\; C=100\mu F,\; D=0.6, D_{max} = 0.67$
-        \subsection*{Switching Frequency}
+        \subsection*{a) Switching Frequency}
             $$V_{o}=\frac{D}{1-D}V_{d}=15V$$
             $$I_{o}=\frac{V_{o}}{R_{L}}=0.03A$$
             $$I_{ripple}=0.2I_{o}\frac{V_{o}}{V_{d}}=0.009A$$
             $$I_{omax}=I_{o}+0.5I_{ripple}=0.0345A$$
-            $$f_{sw}=\frac{V_{d}\left(V_{o}-V_{d}\right)}{LI_{ripple}V_{o}} = 92592.5925926Hz$$
+            $$f_{sw}=\frac{V_{d}\left(V_{o}-V_{d}\right)}{LI_{ripple}V_{o}} = 92592Hz$$
             \begin{center}
                 \includegraphics[width=1\textwidth]{frequency.png}\\
                 \textit{Duty Cycle vs Switching Frequency}
             \end{center}
-            Note that a 60\% duty cycle requires the highest switching frequency.\\
+            Note that it can be seen from the plot above that a 60\% duty cycle requires the highest switching frequency. Because of this we will use this frequency rather than using the frequency for a duty cycle of 67\%, as it will guarantee a current ripple no greater than 20\% for all voltages.\\
 
 \hrule
 
-        \subsection*{Schematic}
+        \subsection*{b) Schematic}
         \begin{center}
             \includegraphics[width=1\textwidth]{schematic.png}
         \end{center}
-        \subsection*{Output Voltage Ripple}
+        \subsection*{c) Output Voltage Ripple}
             $$V_{ripple}=\frac{I_{omax}D_{max}}{f_{sw}C}=0.00425V\\$$
       
 \hrule
@@ -82,9 +82,14 @@
 \hrule
 
     \section{Efficiency}
+
+    The plot below displays the efficiency vs output current plot of our designed boost converter.
+
         \begin{center}
             \includegraphics[width=1\textwidth]{efficiency.png}
         \end{center}
+
+
     \hrule
 \end{preview}
 \end{document}
