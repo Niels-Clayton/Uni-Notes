@@ -37,7 +37,9 @@ Niels Clayton: 300437590
 
 \matlabheading{Section A - Formative Questions}
 
+\hrule\vspace{15pt}
 \matlabheadingtwo{\textbf{Question 1.} }
+\hrule\vspace{20pt}
 
 \begin{par}
 \begin{flushleft}
@@ -67,6 +69,7 @@ D = [0 , 0 ;
      0 , 0 ];
 \end{matlabcode}
 
+\hrule
 
 \matlabheadingthree{\textbf{(a)    }}
 
@@ -113,7 +116,7 @@ grid on;
 \includegraphics[width=\maxwidth{56.196688409433015em}]{figure_1.png}
 \end{center}
 
-
+\hrule
 \matlabheadingthree{(b)}
 
 \begin{par}
@@ -161,6 +164,7 @@ grid on;
 \end{center}
 
 
+\hrule
 \matlabheadingthree{(c) }
 
 \begin{par}
@@ -227,6 +231,7 @@ legend("u_1", "u_2");
 \end{center}
 
 
+\hrule
 \matlabheadingthree{(d)}
 
 \begin{par}
@@ -270,6 +275,7 @@ grid on;
 \end{center}
 
 
+\hrule
 \matlabheadingthree{(e) }
 
 \begin{par}
@@ -316,6 +322,7 @@ It can be seen that varying the the sampling period has a large affect on the ou
 \end{par}
 
 
+\hrule
 \matlabheadingthree{(f) }
 
 \begin{par}
@@ -356,7 +363,9 @@ hold off
 \end{center}
 
 
+\hrule
 \matlabheadingtwo{Question 2}
+\hrule\vspace{15pt}
 
 \begin{par}
 \begin{flushleft}
@@ -392,6 +401,8 @@ Figure 1: An unbuffered phase-shift oscillator
 
 
 \vspace{1em}
+
+\hrule
 \matlabheadingthree{\textbf{(a) }\textit{Write a state space representation for the system.}}
 
 \begin{par}
@@ -413,9 +424,9 @@ v_c
 
 \vspace{1em}
 \begin{par}
-$$v_o =$$$$\left\lbrack \begin{array}{ccc}
+$$v_o = \left\lbrack \begin{array}{ccc}
 0 & 0 & 1
-\end{array}\right\rbrack$$$$\left\lbrack \begin{array}{c}
+\end{array}\right\rbrack \left\lbrack \begin{array}{c}
 v_a \\
 v_b \\
 v_c 
@@ -425,16 +436,17 @@ v_c
 
 \vspace{1em}
 \begin{par}
-$$A=$$$$\left\lbrack \begin{array}{ccc}
+$$A=\left\lbrack \begin{array}{ccc}
 -\frac{2}{\textrm{RC}} & \frac{1}{\textrm{RC}} & -\frac{R_2 }{R_1 }\frac{1}{\textrm{RC}}\\
 \frac{1}{\textrm{RC}} & -\frac{2}{\textrm{RC}} & \frac{1}{\textrm{RC}}\\
 0 & \frac{1}{\textrm{RC}} & -\left(\frac{1}{\textrm{RC}}+\frac{1}{R_1 C}\right)
-\end{array}\right\rbrack ,C=\left\lbrack \begin{array}{ccc}
+\end{array}\right\rbrack ,\;\;\;C=\left\lbrack \begin{array}{ccc}
 0 & 0 & 1
 \end{array}\right\rbrack$$
 \end{par}
 
-
+\vspace{15pt}
+\hrule
 \matlabheadingthree{\textbf{(b) }\textit{The ratio }$\frac{\textrm{R2}}{\textrm{R1}}\approx 30$\textit{ matters if the oscillator is to maintain sustained oscillations.}}
 
 \begin{par}
@@ -600,11 +612,12 @@ grid on;
 \includegraphics[width=\maxwidth{56.196688409433015em}]{figure_13.png}
 \end{center}
 
-
+\hrule\vspace{20pt}
 \matlabheading{Section B - Summative Questions}
+\hrule\vspace{20pt}
 
 
-\matlabheadingthree{\textit{(3) You need to design a simple open loop "controller" that causes a rocket to pitch }${10}^{\circ }$\textit{ clockwise by the end of the first 15 seconds of flight. The idea is nominally to let the rocket ascend for the first five seconds and then pitch over at approximately }$1^{\circ } /s$\textit{ for the remaining 10 seconds. The main rocket engine is at full burn throughout the period.}}
+\matlabheadingthree{\textit{You need to design a simple open loop "controller" that causes a rocket to pitch }${10}^{\circ }$\textit{ clockwise by the end of the first 15 seconds of flight. The idea is nominally to let the rocket ascend for the first five seconds and then pitch over at approximately }$1^{\circ } /s$\textit{ for the remaining 10 seconds. The main rocket engine is at full burn throughout the period.}}
 
 \matlabheadingthree{\textit{A continuous time, nonlinear model for the rocket is as described below. Simulation code for the complete nonlinear system is available on the course website.}}
 
@@ -757,6 +770,8 @@ Hints:
 
 \begin{par}
 \begin{flushleft}
+
+\hrule\vspace{20pt}
 \textbf{a)} \textbf{[5 marks]}\textit{ Use the nonlinear model to devise a nominal control signal }$\mathit{\mathbf{u}}$\textit{. You should assume that }$u_1$\textit{ is a constant throughout the 15 seconds of flight, such that there is no remaining fuel after that time. You should then choose }$u_2$\textit{ to effect the required pitch-over manoeuvre.}
 \end{flushleft}
 \end{par}
@@ -802,6 +817,7 @@ final_angle = 10.0000
 
 \begin{par}
 \begin{flushleft}
+\hrule\vspace{20pt}
 \textbf{b) [2 marks]} \textit{What is the maximum acceleration seen by the rocket during the launch?}
 \end{flushleft}
 \end{par}
@@ -846,13 +862,18 @@ The maximum acceleration seen by the rocket during the launch is $15\ldotp 4347\
 
 \begin{par}
 \begin{flushleft}
+\hrule\vspace{20pt}
 \textbf{c) [3 marks] }\textit{Which state variables are important in the linearisation? That is, in which variables is the model nonlinear? Provide physical reasoning for the identified nonlinearities.}
 \end{flushleft}
 \end{par}
 
 \begin{par}
 \begin{flushleft}
-By looking at the state vector descriptions we can see that $\dot{x_2 } \;,\;\dot{x_4 } \;,\;\dot{x_6 }$ are the accelerations of the rocket, as they are the derivatives of the rocket velocities. We can also see from the acceleration plot above that these accelerations are all non-constant, and therefore are non-linear. From this we can say that the velocities $x_2 \;,\;x_4 \;,x_6 \;$are also all non-constant, as they are the integrals of $\dot{x_2 } \;,\;\dot{x_4 } \;,\;\dot{x_6 }$, and therefore non-linear. Finally we can see that $\dot{x_1 } \;,\;\dot{x_3 } \;,\;\dot{x_{5\;\;} }$are all dependant on $x_2 \;,\;x_4 \;,x_6$ and therefore will also be non-linear.
+
+By looking at the state vector descriptions we can see that $\dot{x_2 } \;,\;\dot{x_4 } \;,\;\dot{x_6 }$ are the accelerations of the rocket, as they are the derivatives of the rocket velocities. We know that the acceleration of the rocket will be inherently non-linear, as the mass of the rocket is changing thought the flight, and the drag coefficient of the rocket will also not remain constant. We can also see from the acceleration plot above that all these accelerations are non-constant, and therefore are non-linear. 
+
+From this we can say that the velocities $x_2 \;,\;x_4 \;,x_6 \;$are also all non-constant, as they are the integrals of $\dot{x_2 } \;,\;\dot{x_4 } \;,\;\dot{x_6 }$, and therefore non-linear. Finally we can see that $\dot{x_1 } \;,\;\dot{x_3 } \;,\;\dot{x_{5\;\;} }$are all derived from $x_2 \;,\;x_4 \;,x_6$ and therefore these state variables will also be non-linear.
+
 \end{flushleft}
 \end{par}
 
@@ -865,6 +886,7 @@ The means that the only linear state variable within this model is $x_7 \ldotp$
 
 \begin{par}
 \begin{flushleft}
+\hrule\vspace{20pt}
 \textbf{d) [5 marks] }\textit{Linearize the model at the position where it begins its pitch-over manoeuvre }$\left(t=5\right)$\textit{ and plot the rocket’s trajectory when you apply your nominal control signal.}
 \end{flushleft}
 \end{par}
@@ -891,7 +913,8 @@ Df_x =
 \end{array}\right)$
 \end{matlabsymbolicoutput}
 \begin{matlabcode}
-A = subs(Df_x, [x1 x2 x3 x4 x5 x6 x7 u1 u2], [x_store(t_store==opp_point,:), u1_const, 0])
+A = subs(Df_x, [x1 x2 x3 x4 x5 x6 x7 u1 u2], 
+     [x_store(t_store==opp_point,:), u1_const, 0])
 \end{matlabcode}
 \begin{matlabsymbolicoutput}
 A = 
@@ -925,7 +948,8 @@ Df_u =
 \end{array}\right)$
 \end{matlabsymbolicoutput}
 \begin{matlabcode}
-B = subs(Df_u, [x1 x2 x3 x4 x5 x6 x7 u1 u2], [x_store(t_store==opp_point,:), u1_const, 0])
+B = subs(Df_u, [x1 x2 x3 x4 x5 x6 x7 u1 u2], 
+     [x_store(t_store==opp_point,:), u1_const, 0])
 \end{matlabcode}
 \begin{matlabsymbolicoutput}
 B = 
@@ -986,7 +1010,8 @@ Df_x =
 \end{array}\right)$
 \end{matlabsymbolicoutput}
 \begin{matlabcode}
-A = subs(Df_x, [x1 x2 x3 x4 x5 x6 x7 u1 u2], [x_store(t_store==opp_point,:), u1_const, 0])
+A = subs(Df_x, [x1 x2 x3 x4 x5 x6 x7 u1 u2], 
+          [x_store(t_store==opp_point,:), u1_const, 0])
 \end{matlabcode}
 \begin{matlabsymbolicoutput}
 A = 
@@ -1055,7 +1080,17 @@ final_angle = 13.1528
 
 \begin{par}
 \begin{flushleft}
-\textbf{f) [5 marks] }\textit{Discuss what you have found from the linearisation, including the differences (if any) between them. What linearisation would you use in a practical implementation of this system?}
+\hrule\vspace{20pt}
+\textbf{f) [5 marks] }\textit{Discuss what you have found from the linearisation, including the differences (if any) between them. What linearisation would you use in a practical implementation of this system?}\\ \vspace{20pt}
+
+By comparing the two linearization's to the original simulation, we can see that neither perform well in predicting the models horizontal velocity or horizontal/vertical position (distance down range), however the prediction of the phase angle is not far from the original, and the fuel consumption is identical (since it was already linear). \vspace{10pt}
+
+When comparing the linearisation around the operating point 't=5' to the linearisation around the operating point 't=15' we can see that there are drastic differences between these two models. For the model of 't=15', the horizontal velocity is negative rather than positive, and the magnitude of this velocity is far greater of that of the original. Because of this the horizontal position can be seen to be drastically incorrect. For the model of 't=5', the horizontal velocity has the correct sign, however the magnitude of this velocity is still far larger than the original system, leading to a much larger horizontal displacement.\vspace{10pt}
+
+From this I would chose to use the linearization with the operation point of 't=5' as it provides the most accurate representation of the original system. However it should be noted that neither of the linear models provides an accurate representation of the original model. \vspace{10pt}
+
+It should also be noted that when choosing an operating point for a linearisation, it is important to select the point to be either close to the middle of your simulation, or around a particular point of interest. This is because as your model moves further away from your operating point, there will be a greater error within your model.
+
 \end{flushleft}
 \end{par}
 

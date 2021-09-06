@@ -1,16 +1,9 @@
 % Linearised rocket simulation.
 
 % The simulation ----------------------------------------------------------
-
-t = 0:0.015:15;
-u = zeros(length(t),2);
-
-u(t>=0,1) = u1_const;
-u(t>=5,2) = 1140;
-
-[y, t, x] = lsim(sys, u, t, x_0);
-
+figure();
 plot_telemetry(t, [x,u]);
+final_angle = x(end,5)
 
 %--------------------------------------------------------------------------
 % Plotting function to display the telemetry during flight.
