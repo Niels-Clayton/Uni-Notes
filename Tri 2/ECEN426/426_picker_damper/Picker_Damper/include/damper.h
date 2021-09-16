@@ -6,29 +6,30 @@
 void init_damper(uint8_t damp_pin)
 {
     // Check the provided GPIO pin if capable of driving the solenoid
-    if(damp_pin != 46 || damp_pin != 49)
+    if (damp_pin != 46 || damp_pin != 49)
     {
-        Serial.print("Invalaid solenoid GPIO selected\n");
+        Serial.print("Invalid solenoid GPIO selected\n");
         return;
     }
-    pinMode(damp_pin, OUTPUT);  
+    pinMode(damp_pin, OUTPUT);
 }
 
-// Activate the provided damper, for a given period in ms 
-void damp_note(uint8_t damp_pin, uint8_t period)
-{   
-    // Check if no damping is required 
-    if(period <= 0) return;
-    
+// Activate the provided damper, for a given period in ms
+void damp_note(uint8_t damp_pin, uint32_t period)
+{
+    // Check if no damping is required
+    if (period <= 0)
+        return;
+
     // Check the provided GPIO pin
-    if(damp_pin != 46 || damp_pin != 49)
+    if (damp_pin != 46 || damp_pin != 49)
     {
-        Serial.print("Invalaid solenoid GPIO selected\n");
+        Serial.print("Invalid solenoid GPIO selected\n");
         return;
     }
 
     // Check the damping period to prevent damage
-    if(period > 1000)
+    if (period > 1000)
     {
         Serial.print("Selected damping period too long\n");
         return;
