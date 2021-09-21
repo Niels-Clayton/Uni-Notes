@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name TLE2082)(type Legacy)(uri ${KIPRJMOD}/libraries/TLE2082.lib)(options "")(descr ""))
+  (lib (name TLE2082_seperate)(type Legacy)(uri ${KIPRJMOD}/libraries/TLE2082_seperate.lib)(options "")(descr ""))
+  (lib (name IR2117SPBF)(type Legacy)(uri ${KIPRJMOD}/libraries/IR2117SPBF.lib)(options "")(descr ""))
+)
