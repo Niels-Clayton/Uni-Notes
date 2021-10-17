@@ -233,7 +233,7 @@
 \textit{In a single phase 50Hz \textbf{power factor correction} circuit, $V_s$ = 240V (rms), $V_d$ = 500V and the output power is 600W. Calculate $i_L(t)$, $d(t)$ and the average current $i_d$ through the output diode. Calculate the second harmonic peak voltage in the capacitor if C = 690$\mu$F}
 
 \begin{align*}
-    \hat{V_s} &= \sqrt{2} \cdot 230 = 339.41\\
+    \hat{V_s} &= \sqrt{2} \cdot 240 = 339.41\\
     d(t) &= 1-\frac{\hat{V_s} | \sin(\omega t)|}{V_d}\\
     &= 1-\frac{339.41 \cdot | \sin(100\pi t)|}{500}\\\\
     I_d &= \frac{600W}{500V} = 1.2A\\
@@ -244,7 +244,7 @@
     \bar{i_d} &= \frac{\hat{V_s} \cdot \hat{I_L}}{V_d}|\sin(100\pi t)|^2 \\
               &= \frac{339.41 \cdot 3.536}{500}|\sin(100\pi t)|^2\\
               &= 2.4|\sin(100\pi t)|^2 \\
-    \bar{i}_{d(avg)} &= 2.4/2 = 1.2A\\\\
+    \bar{i}_{d(avg)} &= 2.4/2 = 1.2A \;\;\; (\mathrm{The \; signal \; is \; symetrical})\\\\
     \hat{V}_{d_{second}} &= \frac{\hat{I_L}}{4\omega C}\frac{\hat{V_s}}{V_d} \\
      &= \frac{3.536}{400\pi(690\times10^{-6})}\frac{339.41}{500} \\
     &= 2.768V
