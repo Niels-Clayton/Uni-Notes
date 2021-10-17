@@ -152,11 +152,12 @@
 \includegraphics[width=0.5\textwidth]{core.png}
 
 \begin{align*}
-    \Phi & = \frac{L\cdot i}{n} = \frac{50.5\times10^{-3} \cdot 50 \times 10^{-3}}{500}                           \\&= 5.05\times10^{-6}\;\;Wb\\\\
-    B    & = \frac{\Phi}{A} = \frac{5.05\times10^{-6}}{10^{-4}}                                                   \\
-         & = 0.0505 \;\;T                                                                              \\\\
+    \Phi & = \frac{L\cdot i}{n} = \frac{50.5\times10^{-3} \cdot 50 \times 10^{-3}}{500} \\
+         &= 5.05\times10^{-6}\;\;Wb\\\\
+    B    & = \frac{\Phi}{A} = \frac{5.05\times10^{-6}}{10^{-4}}\\
+         & = 0.0505 \;\;T \\\\
     H    & = \frac{B}{\mu} = \frac{B}{\mu_r \cdot \mu_0} = \frac{0.0505}{900 \cdot 4\pi\times 10^{-7}} \\
-         & = 44.65 \;\;\;\mathrm{ampere \; turns/m}                                                               \\\\
+         & = 44.65 \;\;\;\mathrm{ampere \; turns/m}
 \end{align*}
 
 
@@ -168,7 +169,9 @@
     P_{in} & =\sqrt{3}\times460\times12.5\times0.82 \\
            & = 8.167kW \\
     P_{out} &= 10(746) = 7.46kW \\
-    \%\eta &= 100(7.46/8.167)=91.343\%
+    \%\eta &= 100(7.46/8.167)=91.343\%\\
+    \mathrm{cost} &= P_{in} \cdot 16 \cdot 5 \cdot 50 \cdot \frac{0.12}{1000}\\
+    &=\$3919.97
 \end{align*}
 
 
@@ -190,10 +193,10 @@
 
     \item \textit{Torque output:}\\
     \begin{align*}
-        \omega_m &= (1165/50)2\pi = 146.39822 \mathrm{rad/s} \\
+        \omega_m &= (1165/60)2\pi = 122.0\;\;\; \mathrm{rad/s} \\
         T_{out} &= P_{out}/\omega_m \\
-        &= 10(746)/146.39822=7460/146.39822
-        \\&=50.96Nm
+        &= 10(746)/122.0 = 7460/122.0
+        \\&=61.15\;\;\;Nm
     \end{align*}
 
     \item \textit{Power input and efficiency:}\\
@@ -220,20 +223,44 @@
     P_{in} &= 9.617kW,\; P_{phase}=3.206kW\;at\;0.71\;\mathrm{lagging}\\
     Q_{old/phase} &= 3.206tan(cos^{-1}(0.71)) = 3.1798 \mathrm{kVAR} \\
     Q_{new/phase} &= 3.206\left(\tan\left(\cos^{-1}\left(0.92\right)\right)\right) = 1.366 \mathrm{kVAR} \\
-    Q_{C/phase} &= 1.366 - 3.1798=-1.8138 \mathrm{kVAR}/\phi
+    Q_{C/phase} &= 1.366\mathrm{kVAR} - 3.1798\mathrm{kVAR}=-1.8138 \mathrm{kVAR}/\phi\\
+    I_{line} &= \frac{P}{\sqrt{3}|V_{line}|pf} = \frac{9616.6925}{\sqrt{3}\cdot\left|460\right|\cdot0.92}\\
+    &= 13.12 A
 \end{align*}
 
 
 \subsubsection*{Q8}
 \textit{In a single phase 50Hz \textbf{power factor correction} circuit, $V_s$ = 240V (rms), $V_d$ = 500V and the output power is 600W. Calculate $i_L(t)$, $d(t)$ and the average current $i_d$ through the output diode. Calculate the second harmonic peak voltage in the capacitor if C = 690$\mu$F}
 
+\begin{align*}
+    \hat{V_s} &= \sqrt{2} \cdot 230 = 339.41\\
+    d(t) &= 1-\frac{\hat{V_s} | \sin(\omega t)|}{V_d}\\
+    &= 1-\frac{339.41 \cdot | \sin(100\pi t)|}{500}\\\\
+    I_d &= \frac{600W}{500V} = 1.2A\\
+    \hat{I_L} &= 2I_d \cdot \frac{V_d}{\hat{V_s}}\\
+    \hat{I_L} &= 2(1.2)\frac{500}{339.41} = 3.536A\\
+    \bar{i_L} &= \hat{I_L}|\sin(\omega t)|\\
+    &= 3.536|\sin(100\pi t)|\\\\
+    \bar{i_d} &= \frac{\hat{V_s} \cdot \hat{I_L}}{V_d}|\sin(100\pi t)|^2 \\
+              &= \frac{339.41 \cdot 3.536}{500}|\sin(100\pi t)|^2\\
+              &= 2.4|\sin(100\pi t)|^2 \\
+    \bar{i}_{d(avg)} &= 2.4/2 = 1.2A\\\\
+    \hat{V}_{d_{second}} &= \frac{\hat{I_L}}{4\omega C}\frac{\hat{V_s}}{V_d} \\
+     &= \frac{3.536}{400\pi(690\times10^{-6})}\frac{339.41}{500} \\
+    &= 2.768V
+\end{align*}
 
 
 \subsubsection*{Q9}
 \textit{In a 2-pole, three-phase \textbf{PMAC motor drive}, the torque constant $k_{T(\phi)}$ and the voltage constant $k_{E(\phi)}$ are 0.5 in MKS units. The synchronous inductance is 20mH (neglect the winding resistance). This motor is supplying a torque of 3 Nm at a speed of 3,000 rpm in a balanced sinusoidal steady state. Calculate the per-phase voltage across the power-processing unit as it supplies controlled currents to this motor.}
 
-
-
-$$  \hat{\bar{\dot{I_{\bar{\hat{\dot{d_{\dot{\bar{\hat{V_{(t)_{\bar{\hat{\hat{\bar{i}}}}}}}}}}}}}}}}} $$
+\begin{align*}
+    T_{em(\phi)} &= T_{em}/3 = 1Nm\\
+    \bar{I_a} &= \frac{T_{em(\phi)}}{k_{T(\phi)}} = \frac{1}{0.5} = 2A\\
+    \omega_m &= (3000/60)2\pi = 314.15 rads^{-1}\\
+    \bar{E}_{ma} &= k_{T(\phi)} \cdot \omega_m = 157.075 V\\\\
+    \bar{V_a} &= \sqrt{(\bar{E}_{ma})^2 + (\omega_m \cdot L_s \cdot \bar{I_a} )^2} = \sqrt{157.075^2 + (314.15 \cdot 20 \times 10^{-3} \cdot 2 )^2}\\
+    &= 157.58V
+\end{align*}
 
 \end{document}
