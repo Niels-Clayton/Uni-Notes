@@ -3,7 +3,7 @@
 clc; clear;
 global g c_d M J L eta k
 
-g= -9.8;   
+g = -9.8;   
 c_d = 2e-3; 
 M = 1000;
 J = 20e3;
@@ -51,22 +51,6 @@ f = @(t,x) [x(2);
         
 %==========================================================================
 
-% % Symbolic Model --------------------------------------------------------
-syms x1 x2 x3 x4 x5 x6 x7 u1 u2
-f_sym = @(t,x) [x2; 
-                g + u1*cos(x5) / (M+x7) - c_d*x2^2;  
-                x4;
-                u1*sin(x5) / (M+x7);
-                x6;
-                k/(J+L^2*x7)*u2;
-                -1/eta*(u1+u2);
-                ];
-
-% Generate the jacobian matrecies
-global Df_x Df_u
-Df_x = jacobian(f_sym, [x1 x2 x3 x4 x5 x6 x7])
-Df_u = jacobian(f_sym, [u1 u2]);
-
 % Simulation parameters ---------------------------------------------------
 global x_0
 x_0 = [0   % Altitude [m]
@@ -81,8 +65,8 @@ x = x_0;
 
 
 dt = 1;             % Simulation time step
-elapsed_time = 0;   % Simulation time tracking
 sim_time = 15;      % Length of the simulation
+elapsed_time = 0;   % Simulation time tracking
 store = [];         % Simulation state storage
 t_store = [];
 
@@ -189,16 +173,35 @@ end
 % here is not particularly clever, but should run.
 
 function[u1, u2] = controller_command(t, x)
-    global eta x_0 Df_x Df_u
+    global g c_d M J L eta k x_0
+    persistent Df_x Df_u 
     
     % Final states we wish to achieve
-    x_f = [1500, nan, 100, 20, 10, 0, 0];  
+    x_f = [1500, 300, 100, 20, 10, 0, 0];  
     
     
     % Set the initial inputs to the system, these have been placed inside
     % the x vector for t>0.
+    % Also create the system Jacobians based on a non-linear system model
     if t == 0
-        x = [x, 1, 1];
+        % Set the initial conditions of the system
+        x = [x, 0, 0]; 
+        
+        % % Symbolic Model --------------------------------------------------------
+        syms x1 x2 x3 x4 x5 x6 x7 u1 u2
+        f_sym = @(t,x) [x2; 
+                        g + u1*cos(x5) / (M+x7) - c_d*x2^2;  
+                        x4;
+                        u1*sin(x5) / (M+x7);
+                        x6;
+                        k/(J+L^2*x7)*u2;
+                        -1/eta*(u1+u2);
+                        ];
+        % % Symbolic Model --------------------------------------------------------
+        
+        % Generate the jacobian matrecies
+        Df_x = jacobian(f_sym, [x1 x2 x3 x4 x5 x6 x7]);
+        Df_u = jacobian(f_sym, [u1 u2]);
     end
     
     
@@ -211,6 +214,18 @@ function[u1, u2] = controller_command(t, x)
     % Somehow calculate the next u1 and u2???
     u1 = eta*x_0(7)/15; % Burn all of the fuel in 15s at uniform rate. 
     u2 = eta*2;  
+    
+    % Current state of the rocket
+    cur_x = x(:,1:7)'
+    
+    % Desired state of the rocket
+    new_x = cur_x + A*cur_x + B*[u1, u2]';
+    
+    % Calculate the unputs required to achieve the desired state
+    u = pinv(B)*(new_x - cur_x - A*x(:,1:7)')
+    
+    u1 = u(1);
+    u2 = u(2);
     
 end
 
