@@ -105,15 +105,19 @@ x_store = store(:,1:7);
 u_store = store(:,8:9);
  
 figure(2)
-subplot(211)
+subplot(2,2,[1 2])
 plot(t_store, x_store)
-legend('x_1', 'x_2', 'x_3', 'x_4', 'x_5', 'x_6', 'x_7')
 ylabel('x')
+% legend('Altitude', 'V Velocity', 'Distance', 'H Velocity', 'Pitch', 'Pitch Rate', 'Fuel','Location','eastoutside')
 
-subplot(212)
-plot(t_store, u_store)
+subplot(2,2,3)
+plot(t_store, u_store(:,1))
 xlabel('Time [s]')
-ylabel('u')
+ylabel('u_1')
+subplot(2,2,4)
+plot(t_store, u_store(:,2))
+xlabel('Time [s]')
+ylabel('u_2')
 
 %--------------------------------------------------------------------------
 % Plotting function to display the telemetry during flight.
@@ -215,17 +219,30 @@ function[u1, u2] = controller_command(t, x)
     u1 = eta*x_0(7)/15; % Burn all of the fuel in 15s at uniform rate. 
     u2 = eta*2;  
     
-    % Current state of the rocket
-    cur_x = x(:,1:7)'
+    % Current state of the rocket    
+    cur_x = x(:,1:7)'; %current state of x 
+    cur_u = x(:,8:9)'; %current state of u 
     
     % Desired state of the rocket
-    new_x = cur_x + A*cur_x + B*[u1, u2]';
+    target_x = [(t+1)*10000/15, 130, 0, 0, 0, 0, 1000-((t+1)*(1000/15))]';
+    % new_x = cur_x + A*cur_x + B*[u1, u2]';
     
     % Calculate the unputs required to achieve the desired state
-    u = pinv(B)*(new_x - cur_x - A*x(:,1:7)')
+    u = pinv(B)*(target_x - cur_x - A*cur_x)
     
-    u1 = u(1);
-    u2 = u(2);
+    if u(1,:) < 0
+        u1 = 0;
+    else
+        u1 = u(1,:);
+    end
+    
+    if x(:,5) >= 9 % turn off at 6deg
+        u2 = 0;
+    elseif (x(:,5) > 7) && (x(:,5) < 9) % reverse pulse before turn off
+        u2 = -2000;
+    else
+        u2 = 500;
+    end
     
 end
 
