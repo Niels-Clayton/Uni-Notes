@@ -1,6 +1,4 @@
-clear
-clf
-clc
+
 
 % Set up the environment (the landmark locations).
 x_beacons = [20 20  40 20  60 20  80 20  20 -10  40 -10  60 -10  80 -10]';
@@ -34,7 +32,7 @@ xlim([-20 120])
 ylim([-40 40])
 axis equal
 
-for t = 1:30
+for t = 1:end_t
     % Move the real robot.
     
     [u1, u2] = controller_command(t, xest(1:3));
@@ -72,7 +70,7 @@ for t = 1:30
         correct(y);
     end
 
-    pause(0.25)    
+%      pause(0.001)   
 end
 
 %==========================================================================

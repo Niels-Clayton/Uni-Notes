@@ -119,6 +119,8 @@ plot(t_store, u_store(:,2))
 xlabel('Time [s]')
 ylabel('u_2')
 
+x(5)
+
 %--------------------------------------------------------------------------
 % Plotting function to display the telemetry during flight.
 %--------------------------------------------------------------------------
@@ -228,7 +230,7 @@ function[u1, u2] = controller_command(t, x)
     % new_x = cur_x + A*cur_x + B*[u1, u2]';
     
     % Calculate the unputs required to achieve the desired state
-    u = pinv(B)*(target_x - cur_x - A*cur_x)
+    u = pinv(B)*(target_x - cur_x - A*cur_x);
     
     if u(1,:) < 0
         u1 = 0;
@@ -236,12 +238,10 @@ function[u1, u2] = controller_command(t, x)
         u1 = u(1,:);
     end
     
-    if x(:,5) >= 9 % turn off at 6deg
+    if x(:,5) >= 5 % turn off at 6deg
         u2 = 0;
-    elseif (x(:,5) > 7) && (x(:,5) < 9) % reverse pulse before turn off
-        u2 = -2000;
     else
-        u2 = 500;
+        u2 = 400;
     end
     
 end
