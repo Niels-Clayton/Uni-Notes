@@ -3,8 +3,10 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{amsmath}
-\usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage{float}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{subcaption}
 
 \hypersetup{ %color attributes of citation, link, etc.
     colorlinks=true,
@@ -38,22 +40,146 @@
 \maketitle
 \hrule
 
+
+\section{Introduction}
+
+Cover the motivation for using a class D in the real world and how it relates to content from ECEN405.
+
+\section{Design}
+
+Here you should describe how your class D amplifier works, giving details of each subsection.
+
+In detail, you should describe the section you designed and the design choices you made. If your team broke up the design of the amplifier in a way that doesn’t suit individual parts being discussed, you will need to talk about the whole design in a bit more detail but you should also describe how the work was delegated and why.
+
 \begin{figure}[h!]
     \centering
     \frame{\includegraphics[page=1, trim={18mm 132mm 2mm 10mm},clip,width=0.85\textwidth]{pcb/schematic.pdf}}
     \caption{High level design schematic}
 \end{figure}
 
-\begin{figure}[h!]
-    \centering
-    \frame{\includegraphics[page=2, trim={25mm 70mm 90mm 60mm},clip,width=0.85\textwidth]{pcb/schematic.pdf}}
-    \caption{Input filtering schematic}
-\end{figure}
+\subsection{Circuit Design and Simulation}
 
 \begin{figure}[h!]
     \centering
     \frame{\includegraphics[page=3, trim={35mm 133.5mm 30mm 15mm},clip,width=0.85\textwidth]{pcb/schematic.pdf}}
     \caption{Sampling triangle wave \& SPWM generation schematic}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{simulation/triangle_wave.png}
+    \caption{Simulation of the generated 32kHz triangle waveform}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{simulation/sampling.png}
+    \caption{Simulation of a 1V peak to peak input signal sampling}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{simulation/spwm_out.png}
+    \caption{Simulation of the SPWM comparator output}
+\end{figure}
+
+\subsection{PCB Design and Layout}
+
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.8\textwidth}
+        \includegraphics[width=\columnwidth]{pcb/traces.png}
+        \subcaption{}
+    \end{subfigure}
+    \begin{subfigure}{0.8\textwidth}
+        \includegraphics[width=\columnwidth]{pcb/top_layer.png}
+        \subcaption{}
+    \end{subfigure}
+    \begin{subfigure}{0.8\textwidth}
+        \includegraphics[width=\columnwidth]{pcb/bottom_layer.png}
+        \subcaption{}
+    \end{subfigure}
+    \caption{}
+\end{figure}
+
+
+\section{Implementation}
+
+Here you should discuss the assembly of the amplifier and any problems you faced as a team building the amplifier.
+
+Here, the individual components should also be characterised. For example: if you have a filter, what is the response and how does it compare to the calculated? If you have a triangle wave, how does it look? Is it doing what I should? Why? Why not? How do the inputs/outputs of your comparator look? How does the square wave on the gate of the MOSFETs look?
+
+\section{Results}
+
+Here I would expect to see the results of the whole amp, for example: an output wave, analysis of the efficiency, discuss maximum power output (which may be frequency dependent), and THD.
+
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\columnwidth]{power_output/filter_output_1Hz.JPG}
+        \subcaption{}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\columnwidth]{power_output/filter_output_10Hz.JPG}
+        \subcaption{}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\columnwidth]{power_output/filter_output_100Hz.JPG}
+        \subcaption{}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\columnwidth]{power_output/filter_output_200Hz.JPG}
+        \subcaption{}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\columnwidth]{power_output/filter_output_500Hz.JPG}
+        \subcaption{}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\columnwidth]{power_output/filter_output_2kHz.JPG}
+        \subcaption{}
+    \end{subfigure}
+    \caption{}
+\end{figure}
+
+
+\begin{figure}[h!]
+    \centering
+    \frame{\includegraphics[width=0.85\textwidth]{power_output/amplifier_bode.pdf}}
+    \caption{Amplifier output bode plot}
+\end{figure}
+
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{l|l}
+    \rowcolor[HTML]{E0E0E0} 
+    \textbf{Frequency (Hz)} & \textbf{THD (\%)} \\ \hline
+    30                 & 1.8               \\
+    50                 & 2.2               \\
+    100                & 3.2               \\
+    200                & 3.3               \\
+    300                & 3.5               \\
+    500                & 3.2              
+    \end{tabular}
+    \caption{Output total harmonic distortion across frequency}
+    \label{T:THD}
+\end{table}
+
+\section{Conclusions}
+
+What worked, didn’t work? How would you change your approach? Any interesting insights?
+
+
+
+\section*{Appendix}
+
+\begin{figure}[h!]
+    \centering
+    \frame{\includegraphics[page=2, trim={25mm 70mm 90mm 60mm},clip,width=0.85\textwidth]{pcb/schematic.pdf}}
+    \caption{Input filtering schematic}
 \end{figure}
 
 \begin{figure}[h!]
